@@ -1,0 +1,16 @@
+[user]
+	name = pinzolo
+	email = pinzolo@gmail.com
+[core]
+	quotepath = false
+	editor = vim
+	excludesfile = /Users/pinzolo/.gitignore
+[color]
+	ui = auto
+[alias]
+	co = checkout
+	cm = commit
+	st = status
+	br = branch
+	hist = log --pretty=format:\\\"%h %ad | %s%d [%an]\\\" --graph --date=short
+	mr = merge --no-ff
