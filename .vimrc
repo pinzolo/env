@@ -1,11 +1,10 @@
 set nocompatible
 
-" {{{ NeoBundle Settings
+" NeoBundle Settings {{{
 filetype off
-set rtp+=~/git_repos/env/neobundle.vim
 
 if has('vim_starting')
-    set runtimepath+=~/git_repos/env/neobundle.vim
+    set runtimepath+=~/.vim/bundle/neobundle.vim
     call neobundle#rc(expand('~/.vim/bundle'))
 endif
 
@@ -31,6 +30,7 @@ NeoBundle 'thinca/vim-ref'
 NeoBundle 'taq/vim-rspec'
 NeoBundle 'h1mesuke/unite-outline'
 NeoBundle 'ujihisa/unite-colorscheme'
+NeoBundle 'Lokaltog/vim-powerline'
 
 " colorschemes
 NeoBundle 'altercation/vim-colors-solarized'
@@ -47,3 +47,11 @@ NeoBundle 'endel/vim-github-colorscheme'
 " }}}
 
 filetype plugin indent on
+
+" backup settings {{{
+set backupdir=~/.vim/temp
+set directory=~/.vim/temp
+set browsedir=buffer
+set history=1024
+" }}}
+

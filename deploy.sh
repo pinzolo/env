@@ -10,3 +10,4 @@ ln -s ~/git_repos/env/.screenrc  ~/
 ln -s ~/git_repos/env/.vimrc     ~/
 ln -s ~/git_repos/env/.zshenv    ~/
 ln -s ~/git_repos/env/.zshrc     ~/
+ln -s ~/git_repos/env/gitignore  ~/.gitignore
