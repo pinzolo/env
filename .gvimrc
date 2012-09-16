@@ -1,5 +1,4 @@
-colorscheme BlackSea
-
+colorscheme jellybeans
 set lines=54
 set columns=160
 

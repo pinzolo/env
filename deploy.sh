@@ -7,6 +7,7 @@ ln -s ~/git_repos/env/.gvimrc    ~/
 ln -s ~/git_repos/env/.irbrc     ~/
 ln -s ~/git_repos/env/.railsrc   ~/
 ln -s ~/git_repos/env/.screenrc  ~/
+ln -s ~/git_repos/env/.vim       ~/
 ln -s ~/git_repos/env/.vimrc     ~/
 ln -s ~/git_repos/env/.zshenv    ~/
 ln -s ~/git_repos/env/.zshrc     ~/
