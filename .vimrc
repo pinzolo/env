@@ -15,12 +15,12 @@ NeoBundle 'Shougo/vimproc'
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neocomplcache-snippets-complete'
 NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/rsense'
 NeoBundle 'tsaleh/vim-matchit'
 NeoBundle 'tpope/vim-rails'
 NeoBundle 'tpope/vim-haml'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-endwise'
-NeoBundle 'm2ym/rsense'
 NeoBundle 'vim-scripts/sudo.vim'
 NeoBundle 'mattn/zencoding-vim'
 NeoBundle 'kchmck/vim-coffee-script'
@@ -33,7 +33,6 @@ NeoBundle 'taq/vim-rspec'
 NeoBundle 'h1mesuke/unite-outline'
 NeoBundle 'ujihisa/unite-colorscheme'
 NeoBundle 'Lokaltog/vim-powerline'
-NeoBundle 'taichouchou2/vim-rsense'
 
 " colorschemes
 NeoBundle 'altercation/vim-colors-solarized'
@@ -148,8 +147,8 @@ set wrapscan
 nnoremap <silent> <ESC><ESC> :<C-u>set nohlsearch<CR><ESC>
 nnoremap / :<C-u>set hlsearch<CR>/
 " 検索箇所を常に中央に
-noremap n Nzz
-noremap N nzz
+noremap n nzz
+noremap N Nzz
 " grep 設定
 let Grep_Skip_Dirs='.svn .git'
 let Grep_Skip_Files='*.bak *~ *.swp *.log'
@@ -189,7 +188,7 @@ let g:neocomplcache_max_list=20
 let g:neocomplcache_snippets_dir='~/.vim/snippets'
 " tabで補完高をの移動を行う
 inoremap <expr><TAB>   pumvisible() ? "\<C-n>" : "\<TAB>"
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>"   : "\<S-TAB>"
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
 " 改行で確定
 inoremap <expr><CR> pumvisible() ? neocomplcache#close_popup() : "\<CR>"
 " C-h, BSでは補完候補のウィンドウを閉じる
@@ -197,39 +196,28 @@ inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
 inoremap <expr><BS> neocomplcache#smart_close_popup()."\<BS>"
 " eclipse や visual studio のように Ctrl+Space で保管できるようにする
 inoremap <C-SPACE> <C-x><C-o>
-" FileType毎のOmni補完を設定
-autocmd FileType python     setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType html       setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType css        setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType xml        setlocal omnifunc=xmlcomplete#CompleteTags
-autocmd FileType php        setlocal omnifunc=phpcomplete#CompletePHP
-autocmd FileType c          setlocal omnifunc=ccomplete#Complete
-
-" RubyではRsenseを使用する {{{
-let g:rsenseHome='/usr/local/Cellar/rsense/0.3/libexec'
-let g:rsenseUseOmniFunc=1
-function! SetUpRubySetting()
-  setlocal completefunc=RSenseCompleteFunction
-  nmap <buffer>tj :RSenseJumpToDefinition<CR>
-  nmap <buffer>tk :RSenseWhereIs<CR>
-  nmap <buffer>td :RSenseTypeHelp<CR>
-endfunction
-autocmd FileType ruby,eruby,ruby.rspec call SetUpRubySetting()
 if !exists('g:neocomplcache_omni_functions')
   let g:neocomplcache_omni_functions={}
 endif
-let g:neocomplcache_omni_functions.ruby='RSenseCompleteFunction'
-" }}}
-
 " Enable heavy omni completion.
 if !exists('g:neocomplcache_omni_patterns')
   let g:neocomplcache_omni_patterns={}
 endif
-let g:neocomplcache_omni_patterns.ruby='[^. *\t]\.\w*\|\h\w*::'
+" FileType毎のOmni補完を設定
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType html       setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType css        setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType xml        setlocal omnifunc=xmlcomplete#CompleteTags
+
 " }}}
 
 " Ruby {{{
+" RubyではRsenseを使用した補完を行う
+let g:rsenseHome='/usr/local/Cellar/rsense/0.3/libexec'
+let g:rsenseUseOmniFunc=1
+let g:neocomplcache_omni_functions.ruby='RSenseCompleteFunction'
+let g:neocomplcache_omni_patterns.ruby='[^. *\t]\.\w*\|\h\w*::'
+
 " マジックコメント自動追加関数
 function! AddMagicComment()
   let pos = getpos('.')
