@@ -52,6 +52,7 @@ case "$OSTYPE" in
     alias ll='ls -al -G'
     alias vi='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim -u $HOME/.vimrc "$@"'
     alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
+    alias ctags='/Applications/MacVim.app/Contents/MacOS/ctags "$@"'
     ;;
   linux*)
     alias ls='ls --color=auto'
@@ -119,5 +120,11 @@ function ff() {
 # rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
 
-# for postgresql on max OS X
-export PATH="/usr/local/bin:$PATH"
+# for postgresql on mac OS X
+case "$OSTYPE" in
+  darwin*)
+    export PATH="/usr/local/bin:$PATH"
+    ;;
+  linux*)
+    ;;
+esac

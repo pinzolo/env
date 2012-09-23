@@ -16,6 +16,7 @@ NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neocomplcache-snippets-complete'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/rsense'
+NeoBundle 'Shougo/vimfiler'
 NeoBundle 'tsaleh/vim-matchit'
 NeoBundle 'tpope/vim-rails'
 NeoBundle 'tpope/vim-haml'
@@ -33,6 +34,7 @@ NeoBundle 'taq/vim-rspec'
 NeoBundle 'h1mesuke/unite-outline'
 NeoBundle 'ujihisa/unite-colorscheme'
 NeoBundle 'Lokaltog/vim-powerline'
+NeoBundle 'osyo-manga/unite-fold'
 
 " colorschemes
 NeoBundle 'altercation/vim-colors-solarized'
@@ -190,7 +192,7 @@ let g:neocomplcache_snippets_dir='~/.vim/snippets'
 inoremap <expr><TAB>   pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
 " 改行で確定
-inoremap <expr><CR> pumvisible() ? neocomplcache#close_popup() : "\<CR>"
+inoremap <expr><C-CR> pumvisible() ? neocomplcache#close_popup() : "\<C-CR>"
 " C-h, BSでは補完候補のウィンドウを閉じる
 inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
 inoremap <expr><BS> neocomplcache#smart_close_popup()."\<BS>"
@@ -209,6 +211,33 @@ autocmd FileType html       setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType css        setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType xml        setlocal omnifunc=xmlcomplete#CompleteTags
 
+" }}}
+
+" unite.vim {{{
+" 垂直分割にする
+let g:unite_enable_split_vertically = 1
+" バッファ
+nnoremap <silent> fb :<C-u>Unite buffer<CR>
+" ファイル
+nnoremap <silent> ff :<C-u>Unite -buffer-name=files file<CR>
+" 最近使用したファイルから選択
+nnoremap <silent> fm :<C-u>Unite buffer file_mru<CR>
+" アウトラインから選択
+nnoremap <silent> fo :<C-u>Unite outline<CR>
+" 折りたたみから選択
+nnoremap <silent> fl :<C-u>Unite fold<CR>
+" unite-rails {{{
+" model 選択
+nnoremap <silent> frm :<C-u>Unite rails/model<CR>
+" controller 選択
+nnoremap <silent> frc :<C-u>Unite rails/controller<CR>
+" view 選択
+nnoremap <silent> frv :<C-u>Unite rails/view<CR>
+" helper 選択
+nnoremap <silent> frh :<C-u>Unite rails/helper<CR>
+" db 選択
+nnoremap <silent> frd :<C-u>Unite rails/db<CR>
+" }}}
 " }}}
 
 " Ruby {{{
