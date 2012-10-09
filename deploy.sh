@@ -6,6 +6,7 @@ ln -s ~/git_repos/env/.gitignore ~/
 ln -s ~/git_repos/env/.gvimrc    ~/
 ln -s ~/git_repos/env/.irbrc     ~/
 ln -s ~/git_repos/env/.railsrc   ~/
+ln -s ~/git_repos/env/.rspec     ~/
 ln -s ~/git_repos/env/.screenrc  ~/
 ln -s ~/git_repos/env/.vim       ~/
 ln -s ~/git_repos/env/.vimrc     ~/
