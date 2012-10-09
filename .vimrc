@@ -1,3 +1,4 @@
+" -------------------------------------------------- pre settings
 " vi互換をoff
 set nocompatible
 autocmd!
@@ -23,6 +24,7 @@ NeoBundle 'tpope/vim-haml'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-endwise'
 NeoBundle 'vim-scripts/sudo.vim'
+NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'mattn/zencoding-vim'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'groenewege/vim-less'
@@ -49,6 +51,8 @@ NeoBundle 'therubymug/vim-pyte'
 NeoBundle 'tomasr/molokai'
 NeoBundle 'endel/vim-github-colorscheme'
 " }}}
+
+" -------------------------------------------------- common settings
 
 " base {{{
 syntax on
@@ -169,6 +173,8 @@ set foldenable
 set foldmethod=marker
 " }}}
 
+" -------------------------------------------------- plugin settings
+
 " NeoComplCache {{{
 " vim起動時にNeoComplCacheを有効にする
 let g:neocomplcache_enable_at_startup=1
@@ -240,6 +246,8 @@ nnoremap <silent> frd :<C-u>Unite rails/db<CR>
 " }}}
 " }}}
 
+" -------------------------------------------------- language settings
+
 " Ruby {{{
 " RubyではRsenseを使用した補完を行う
 let g:rsenseHome='/usr/local/Cellar/rsense/0.3/libexec'
@@ -270,5 +278,5 @@ function! AddMagicComment()
   execute ':normal O'.magic_comment
   call setpos('.', pos)
 endfunction
-autocmd BufWritePre *.rb,*.erb,*.haml call AddMagicComment()<CR>
+autocmd BufWritePre *.rb,*.erb,*.haml :silent! call AddMagicComment()<CR>
 " }}}
