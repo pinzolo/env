@@ -3,3 +3,4 @@
 .vim/plugin/
 .vim/temp/*
 !.vim/temp/.gitkeep
+.netrwhist
