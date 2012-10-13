@@ -5,6 +5,7 @@
 	quotepath = false
 	editor = vim
 	excludesfile = /Users/pinzolo/.gitignore
+	precomposeunicode = true
 [color]
 	ui = auto
 [alias]
