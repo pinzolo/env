@@ -1,5 +1,5 @@
 colorscheme jellybeans
-set lines=54
+set lines=60
 set columns=160
 
 " ツールバーの削除
