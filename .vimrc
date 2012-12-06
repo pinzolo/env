@@ -246,6 +246,11 @@ nnoremap <silent> frd :<C-u>Unite rails/db<CR>
 " }}}
 " }}}
 
+" zen-coding.vim {{{
+" <C-y>, は打ちにくいので<C-y>2回で展開できるようにする
+imap <C-y><C-y> <C-y>,
+" }}}
+
 " -------------------------------------------------- language settings
 
 " Ruby {{{
