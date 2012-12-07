@@ -17,3 +17,5 @@
 	mr = merge
 [merge]
 	ff = true
+[push]
+	default = simple
