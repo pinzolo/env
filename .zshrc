@@ -53,6 +53,7 @@ case "$OSTYPE" in
     alias vi='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim -u $HOME/.vimrc "$@"'
     alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
     alias ctags='/Applications/MacVim.app/Contents/MacOS/ctags "$@"'
+    alias eclipse='/Applications/eclipse/eclipse "$@"'
     ;;
   linux*)
     alias ls='ls --color=auto'
