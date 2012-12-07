@@ -1,2 +1,1 @@
-env
-===
+env いわゆる dotfiles みたいなもん
