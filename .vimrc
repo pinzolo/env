@@ -74,7 +74,7 @@ set formatoptions=lmoq
 " Exploreの初期ディレクトリをバッファに
 set browsedir=buffer
 " ノーマルモードでは ; を : として扱う
-nnoremap ; :
+"nnoremap ; :
 " }}}
 
 " display {{{
@@ -222,27 +222,32 @@ autocmd FileType xml        setlocal omnifunc=xmlcomplete#CompleteTags
 " unite.vim {{{
 " 垂直分割にする
 let g:unite_enable_split_vertically = 1
+" unite.vim の prefix key
+nnoremap [unite] <Nop>
+nmap ; [unite]
 " バッファ
-nnoremap <silent> fb :<C-u>Unite buffer<CR>
+nnoremap <silent> [unite]b :<C-u>Unite buffer<CR>
 " ファイル
-nnoremap <silent> ff :<C-u>Unite -buffer-name=files file<CR>
+nnoremap <silent> [unite]f :<C-u>Unite -buffer-name=files file<CR>
+" 現在開いているファイルと同じディレクトリから選択
+nnoremap <silent> [unite]c :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
 " 最近使用したファイルから選択
-nnoremap <silent> fm :<C-u>Unite buffer file_mru<CR>
+nnoremap <silent> [unite]m :<C-u>Unite buffer file_mru<CR>
 " アウトラインから選択
-nnoremap <silent> fo :<C-u>Unite outline<CR>
+nnoremap <silent> [unite]o :<C-u>Unite outline<CR>
 " 折りたたみから選択
-nnoremap <silent> fl :<C-u>Unite fold<CR>
+nnoremap <silent> [unite]l :<C-u>Unite fold<CR>
 " unite-rails {{{
 " model 選択
-nnoremap <silent> frm :<C-u>Unite rails/model<CR>
+nnoremap <silent> [unite]rm :<C-u>Unite rails/model<CR>
 " controller 選択
-nnoremap <silent> frc :<C-u>Unite rails/controller<CR>
+nnoremap <silent> [unite]rc :<C-u>Unite rails/controller<CR>
 " view 選択
-nnoremap <silent> frv :<C-u>Unite rails/view<CR>
+nnoremap <silent> [unite]rv :<C-u>Unite rails/view<CR>
 " helper 選択
-nnoremap <silent> frh :<C-u>Unite rails/helper<CR>
+nnoremap <silent> [unite]rh :<C-u>Unite rails/helper<CR>
 " db 選択
-nnoremap <silent> frd :<C-u>Unite rails/db<CR>
+nnoremap <silent> [unite]rd :<C-u>Unite rails/db<CR>
 " }}}
 " }}}
 
