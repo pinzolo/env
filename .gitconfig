@@ -16,6 +16,6 @@
 	hist = log --pretty=format:\\\"%h %ad | %s%d [%an]\\\" --graph --date=short
 	mr = merge
 [merge]
-	ff = true
+	ff = false
 [push]
 	default = current
