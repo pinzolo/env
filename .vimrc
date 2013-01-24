@@ -14,6 +14,7 @@ endif
 " plugins
 NeoBundle 'Shougo/vimproc'
 NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/rsense'
