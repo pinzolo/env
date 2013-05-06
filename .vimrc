@@ -74,6 +74,8 @@ set clipboard=unnamed
 set formatoptions=lmoq
 " Exploreの初期ディレクトリをバッファに
 set browsedir=buffer
+" 改行時にコメントしない
+autocmd FileType * set formatoptions-=ro
 " ノーマルモードでは ; を : として扱う
 "nnoremap ; :
 " }}}
@@ -260,6 +262,9 @@ imap <C-y><C-y> <C-y>,
 " -------------------------------------------------- language settings
 
 " Ruby {{{
+
+autocmd FileType ruby,haml,eruby,sass,cucumber,mason setlocal ts=2 sts=2 sw=2 nowrap
+
 " RubyではRsenseを使用した補完を行う
 let g:rsenseHome='/usr/local/Cellar/rsense/0.3/libexec'
 let g:rsenseUseOmniFunc=1
@@ -290,4 +295,40 @@ function! AddMagicComment()
   call setpos('.', pos)
 endfunction
 autocmd BufWritePre *.rb,*.erb,*.haml :silent! call AddMagicComment()<CR>
+" }}}
+
+" Java {{{
+autocmd FileType java setlocal ts=4 sts=4 sw=4
+" }}}
+
+" sh {{{
+autocmd FileType sh setlocal ts=2 sts=2 sw=2
+" }}}
+
+" SQL {{{
+autocmd FileType sql setlocal ts=2 sts=2 sw=2
+" }}}
+
+" css {{{
+autocmd FileType css setlocal ts=2 sts=2 sw=2
+" }}}
+
+" scss {{{
+autocmd FileType scss setlocal ts=2 sts=2 sw=2
+" }}}
+
+" JavaScript {{{
+autocmd FileType javascript setlocal ts=2 sts=2 sw=2
+" }}}
+
+" coffee script {{{
+autocmd FileType coffee setlocal ts=2 sts=2 sw=2
+" }}}
+
+" HTML {{{
+autocmd FileType html,xhtml setlocal ts=2 sts=2 sw=2
+" }}}
+
+" XML {{{
+autocmd FileType xml setlocal ts=2 sts=2 sw=2
 " }}}
