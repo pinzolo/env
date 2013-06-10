@@ -22,6 +22,8 @@ endif
 " 印刷用フォント
 if has("win32")
   set printfont=M+2VM+IPAG_circle:h10:cSHIFTJIS
+elseif has("mac")
+  set guifont=Ricty:h12
 else
   "set printfont=M+2VM+IPAG\ circle\ 10
   set printfont=Ricty\ 10
