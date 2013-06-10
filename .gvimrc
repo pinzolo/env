@@ -12,6 +12,8 @@ set cmdheight=3
 " フォント設定
 if has("win32")
   set guifont=M+2VM+IPAG_circle:h10:cSHIFTJIS
+elseif has("mac")
+  set guifont=Ricty:h12
 else
   "set guifont=M+2VM+IPAG\ circle\ 10
   set guifont=Ricty\ 10
