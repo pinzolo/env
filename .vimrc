@@ -33,6 +33,7 @@ NeoBundle 'tomtom/tcomment_vim'
 NeoBundle 'ujihisa/unite-rake'
 NeoBundle 'basyura/unite-rails'
 NeoBundle 'thinca/vim-ref'
+NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'taq/vim-rspec'
 NeoBundle 'h1mesuke/unite-outline'
 NeoBundle 'ujihisa/unite-colorscheme'
@@ -202,9 +203,8 @@ inoremap <expr><TAB>   pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
 " 改行で確定
 inoremap <expr><C-CR> pumvisible() ? neocomplcache#close_popup() : "\<C-CR>"
-" C-h, BSでは補完候補のウィンドウを閉じる
-inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> neocomplcache#smart_close_popup()."\<BS>"
+" BSでは補完候補のウィンドウを閉じる
+inoremap <expr><BS> pumvisible() ? neocomplcache#smart_close_popup() : "\<BS>"
 " eclipse や visual studio のように Ctrl+Space で保管できるようにする
 inoremap <C-SPACE> <C-x><C-o>
 if !exists('g:neocomplcache_omni_functions')
