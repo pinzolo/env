@@ -202,8 +202,7 @@ inoremap <expr><TAB>   pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
 " 改行で確定
 inoremap <expr><C-CR> pumvisible() ? neocomplcache#close_popup() : "\<C-CR>"
-" C-h, BSでは補完候補のウィンドウを閉じる
-inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
+" BSでは補完候補のウィンドウを閉じる
 inoremap <expr><BS> neocomplcache#smart_close_popup()."\<BS>"
 " eclipse や visual studio のように Ctrl+Space で保管できるようにする
 inoremap <C-SPACE> <C-x><C-o>
