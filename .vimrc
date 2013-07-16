@@ -121,6 +121,12 @@ inoremap <expr> ,dt strftime('%H:%M:%S')
 nmap ,df i,df<ESC>
 nmap ,dd i,dd<ESC>
 nmap ,dt i,dt<ESC>
+" ペア入力時のカーソル移動
+inoremap {} {}<LEFT>
+inoremap [] []<LEFT>
+inoremap () ()<LEFT>
+inoremap "" ""<LEFT>
+inoremap '' ''<LEFT>
 " 保存時に行末の空白を削除する
 autocmd BufWritePre * :%s/\s\+$//ge
 " }}}
