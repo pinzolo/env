@@ -24,6 +24,7 @@ NeoBundle 'tpope/vim-rails'
 NeoBundle 'tpope/vim-haml'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-endwise'
+NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'vim-scripts/sudo.vim'
 NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'mattn/zencoding-vim'
@@ -37,7 +38,7 @@ NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'taq/vim-rspec'
 NeoBundle 'h1mesuke/unite-outline'
 NeoBundle 'ujihisa/unite-colorscheme'
-NeoBundle 'Lokaltog/vim-powerline'
+NeoBundle 'bling/vim-airline'
 NeoBundle 'osyo-manga/unite-fold'
 
 " colorschemes
@@ -266,6 +267,13 @@ nnoremap <silent> [unite]rd :<C-u>Unite rails/db<CR>
 " zen-coding.vim {{{
 " <C-y>, は打ちにくいので<C-y>2回で展開できるようにする
 imap <C-y><C-y> <C-y>,
+" }}}
+
+" vim-airline {{{
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
+let g:airline_theme = 'dark'
+let g:airline_branch_empty_message = "[!git]"
 " }}}
 
 " -------------------------------------------------- language settings
