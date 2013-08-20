@@ -4,14 +4,39 @@ compinit
 autoload -U colors
 colors
 
+function git-current-branch {
+  local name st color
+
+  if [[ "$PWD" =~ '/\.git(/.*)?$' ]]; then
+    return
+  fi
+  name=$(basename "`git symbolic-ref HEAD 2> /dev/null`")
+  if [[ -z $name ]]; then
+    return
+  fi
+  st=`git status 2> /dev/null`
+  if [[ -n `echo "$st" | grep "^nothing to"` ]]; then
+    color=${fg[green]}
+  elif [[ -n `echo "$st" | grep "^nothing added"` ]]; then
+    color=${fg[yellow]}
+  elif [[ -n `echo "$st" | grep "^# Untracked"` ]]; then
+    color=${fg_bold[red]}
+  else
+    color=${fg[red]}
+  fi
+
+  # %{...%} は囲まれた文字列がエスケープシーケンスであることを明示する
+  echo " [%{$color%}$name%{$reset_color%}]"
+}
+
 # enable escape sequence (\e = )
 setopt prompt_subst
-PROMPT=$'%{\e[36m%}%n@%m %%%{\e[m%} '
+PROMPT=$'%{${fg[cyan]}%}%n@%m%{\e[m%}`git-current-branch` %{${fg[cyan]}%}%% '
 # for server
 #PROMPT=$'%{\e[33m%}%n@%M %%%{\e[m%} '
 # for root
 #PROMPT=$'%{\e[31m%}%n@%M %#%{\e[m%} '
-RPROMPT=$'%{\e[32m%}[%/]%{\e[m%}'
+RPROMPT=$'%{${fg[green]}%}[%/]%{\e[m%}'
 PROMPT2="%_%% "
 SPROMPT="%r is correct? [n,y,a,e]: "
 
