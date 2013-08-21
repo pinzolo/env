@@ -22,7 +22,7 @@ endif
 if has("win32")
   set printfont=Migu_1M:h9:cSHIFTJIS
 elseif has("mac")
-  set guifont=Ricty:h12
+  set printfont=Ricty:h12
 else
   set printfont=Ricty\ 10
 endif
