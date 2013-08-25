@@ -1,6 +1,6 @@
 colorscheme jellybeans
 set lines=60
-set columns=160
+set columns=180
 
 " ツールバーの削除
 set guioptions-=T
