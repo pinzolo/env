@@ -298,10 +298,6 @@ function! AddMagicComment()
     if line[0:1] == '#!'
       let line_index = 2
     endif
-  elseif &filetype == 'haml'
-    let magic_comment = '-'.magic_comment
-  elseif &filetype == 'eruby'
-    let magic_comment = '<%'.magic_comment.' %>'
   endif
   let line = getline(line_index)
   if line =~ 'coding:'
@@ -311,7 +307,7 @@ function! AddMagicComment()
   execute ':normal O'.magic_comment
   call setpos('.', pos)
 endfunction
-autocmd BufWritePre *.rb,*.erb,*.haml :silent! call AddMagicComment()<CR>
+autocmd BufWritePre *.rb :silent! call AddMagicComment()<CR>
 " }}}
 
 " Java {{{
