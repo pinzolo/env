@@ -17,7 +17,7 @@ NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/rsense'
+"NeoBundle 'Shougo/rsense'
 NeoBundle 'Shougo/vimfiler'
 NeoBundle 'Shougo/junkfile.vim'
 NeoBundle 'tsaleh/vim-matchit'
@@ -286,7 +286,6 @@ let g:quickrun_config['ruby.rspec'] = { 'command': 'rspec', 'cmdopt': 'bundle ex
 " -------------------------------------------------- language settings
 
 " Ruby {{{
-
 autocmd FileType ruby,haml,eruby,sass,cucumber,mason setlocal ts=2 sts=2 sw=2 nowrap
 augroup RSpec
   autocmd!
@@ -294,10 +293,10 @@ augroup RSpec
 augroup END
 
 " RubyではRsenseを使用した補完を行う
-let g:rsenseHome='/usr/local/Cellar/rsense/0.3/libexec'
-let g:rsenseUseOmniFunc=1
-let g:neocomplcache_omni_functions.ruby='RSenseCompleteFunction'
-let g:neocomplcache_omni_patterns.ruby='[^. *\t]\.\w*\|\h\w*::'
+"let g:rsenseHome='/usr/local/Cellar/rsense/0.3/libexec'
+"let g:rsenseUseOmniFunc=1
+"let g:neocomplcache_omni_functions.ruby='RSenseCompleteFunction'
+"let g:neocomplcache_omni_patterns.ruby='[^. *\t]\.\w*\|\h\w*::'
 
 " マジックコメント自動追加関数
 function! AddMagicComment()
