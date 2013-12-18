@@ -1,4 +1,6 @@
 *.log
 *.swp
 .DS_Store
+.ruby-version
+**/vendor/bundle
 
