@@ -59,6 +59,8 @@ NeoBundle 'w0ng/vim-hybrid'
 NeoBundle '29decibel/codeschool-vim-theme'
 "NeoBundle 'vim-scripts/phd'
 "NeoBundle 'vim-scripts/twilight'
+"NeoBundle 'vim-scripts/rdark'
+"NeoBundle 'mrkn/mrkn256.vim'
 " }}}
 
 " -------------------------------------------------- common settings
