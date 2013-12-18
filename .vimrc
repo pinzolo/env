@@ -17,8 +17,9 @@ NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/rsense'
+"NeoBundle 'Shougo/rsense'
 NeoBundle 'Shougo/vimfiler'
+NeoBundle 'Shougo/junkfile.vim'
 NeoBundle 'tsaleh/vim-matchit'
 NeoBundle 'tpope/vim-rails'
 NeoBundle 'tpope/vim-haml'
@@ -42,17 +43,24 @@ NeoBundle 'bling/vim-airline'
 NeoBundle 'osyo-manga/unite-fold'
 
 " colorschemes
-NeoBundle 'altercation/vim-colors-solarized'
-NeoBundle 'croaker/mustang-vim'
-NeoBundle 'jeffreyiacono/vim-colors-wombat'
+"NeoBundle 'altercation/vim-colors-solarized'
+"NeoBundle 'croaker/mustang-vim'
+"NeoBundle 'jeffreyiacono/vim-colors-wombat'
 NeoBundle 'nanotech/jellybeans.vim'
-NeoBundle 'vim-scripts/Lucius'
-NeoBundle 'vim-scripts/Zenburn'
-NeoBundle 'mrkn/mrkn256.vim'
+"NeoBundle 'vim-scripts/Lucius'
+"NeoBundle 'vim-scripts/Zenburn'
 NeoBundle 'jpo/vim-railscasts-theme'
-NeoBundle 'therubymug/vim-pyte'
-NeoBundle 'tomasr/molokai'
-NeoBundle 'endel/vim-github-colorscheme'
+"NeoBundle 'therubymug/vim-pyte'
+"NeoBundle 'tomasr/molokai'
+"NeoBundle 'endel/vim-github-colorscheme'
+"NeoBundle 'baskerville/bubblegum'
+NeoBundle 'w0ng/vim-hybrid'
+"NeoBundle 'mitsuhiko/fruity-vim-colorscheme'
+NeoBundle '29decibel/codeschool-vim-theme'
+"NeoBundle 'vim-scripts/phd'
+"NeoBundle 'vim-scripts/twilight'
+"NeoBundle 'vim-scripts/rdark'
+"NeoBundle 'mrkn/mrkn256.vim'
 " }}}
 
 " -------------------------------------------------- common settings
@@ -276,17 +284,26 @@ let g:airline_theme = 'dark'
 let g:airline_branch_empty_message = "[!git]"
 " }}}
 
+" quickrun {{{
+let g:quickrun_config = {}
+let g:quickrun_config._ = {'runner' : 'vimproc'}
+let g:quickrun_config['ruby.rspec'] = { 'command': 'rspec', 'cmdopt': 'bundle exec', 'exec': '%o %c %s' }
+" }}}
+
 " -------------------------------------------------- language settings
 
 " Ruby {{{
-
 autocmd FileType ruby,haml,eruby,sass,cucumber,mason setlocal ts=2 sts=2 sw=2 nowrap
+augroup RSpec
+  autocmd!
+  autocmd BufWinEnter,BufNewFile *_spec.rb set filetype=ruby.rspec
+augroup END
 
 " RubyではRsenseを使用した補完を行う
-let g:rsenseHome='/usr/local/Cellar/rsense/0.3/libexec'
-let g:rsenseUseOmniFunc=1
-let g:neocomplcache_omni_functions.ruby='RSenseCompleteFunction'
-let g:neocomplcache_omni_patterns.ruby='[^. *\t]\.\w*\|\h\w*::'
+"let g:rsenseHome='/usr/local/Cellar/rsense/0.3/libexec'
+"let g:rsenseUseOmniFunc=1
+"let g:neocomplcache_omni_functions.ruby='RSenseCompleteFunction'
+"let g:neocomplcache_omni_patterns.ruby='[^. *\t]\.\w*\|\h\w*::'
 
 " マジックコメント自動追加関数
 function! AddMagicComment()
