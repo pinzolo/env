@@ -13,7 +13,7 @@ endif
 
 " plugins
 NeoBundle 'Shougo/vimproc'
-NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/unite.vim'
@@ -197,24 +197,18 @@ set foldmethod=marker
 " -------------------------------------------------- plugin settings
 
 " NeoComplCache {{{
-" vim起動時にNeoComplCacheを有効にする
-let g:neocomplcache_enable_at_startup=1
+" vim起動時に有効にする
+let g:neocomplete#enable_at_startup=1
 " 補完が自動で開始される文字数
-let g:neocomplcache_auto_completion_start_length=3
+let g:neocomplete#auto_completion_start_length=3
 " smarrt case有効化。 大文字が入力されるまで大文字小文字の区別を無視する
-let g:neocomplcache_enable_smart_case=1
-" アンダースコア区切りの補完を有効にする
-let g:neocomplcache_enable_underbar_completion=1
+let g:neocomplete#enable_smart_case=1
 " シンタックスをキャッシュするときの最小文字長を3に
-let g:neocomplcache_min_syntax_length=3
-" -入力による候補番号の表示
-let g:neocomplcache_enable_quick_match=-2
+let g:neocomplete#sources#syntax#min_keyword_length=3
 " 補完候補の一番先頭を選択状態にする
-let g:neocomplcache_enable_auto_select=1
+let g:neocomplete#enable_auto_select=1
 "ポップアップメニューで表示される候補の数。初期値は100
-let g:neocomplcache_max_list=20
-" ユーザー定義スニペットの保存先
-let g:neocomplcache_snippets_dir='~/.vim/snippets'
+let g:neocomplete#max_list=30
 " tabで補完高をの移動を行う
 inoremap <expr><TAB>   pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
@@ -225,11 +219,11 @@ inoremap <expr><BS> pumvisible() ? neocomplcache#smart_close_popup() : "\<BS>"
 " eclipse や visual studio のように Ctrl+Space で保管できるようにする
 inoremap <C-SPACE> <C-x><C-o>
 if !exists('g:neocomplcache_omni_functions')
-  let g:neocomplcache_omni_functions={}
+  let g:neocomplete#sources#omni#functions={}
 endif
 " Enable heavy omni completion.
 if !exists('g:neocomplcache_omni_patterns')
-  let g:neocomplcache_omni_patterns={}
+  let g:neocomplete#sources#omni#input_patterns={}
 endif
 " FileType毎のOmni補完を設定
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
