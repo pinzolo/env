@@ -209,7 +209,7 @@ let g:neocomplete#sources#syntax#min_keyword_length=3
 let g:neocomplete#enable_auto_select=1
 "ポップアップメニューで表示される候補の数。初期値は100
 let g:neocomplete#max_list=30
-" tabで補完高をの移動を行う
+" tabで補完候補をの移動を行う
 inoremap <expr><TAB>   pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
 " 改行で確定(今のところデフォルトで機能している)
