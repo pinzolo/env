@@ -225,11 +225,6 @@ endif
 if !exists('g:neocomplete#sources#omni#input_patterns')
   let g:neocomplete#sources#omni#input_patterns={}
 endif
-" FileType毎のOmni補完を設定
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType html       setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType css        setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType xml        setlocal omnifunc=xmlcomplete#CompleteTags
 " }}}
 
 " unite.vim {{{
@@ -285,6 +280,14 @@ let g:quickrun_config['ruby.rspec'] = { 'command': 'rspec', 'cmdopt': 'bundle ex
 " -------------------------------------------------- language settings
 
 " Ruby {{{
+autocmd FileType ruby,eruby setlocal omnifunc=rubycomplete#Complete
+let g:rubycomplete_rails = 0
+let g:rubycomplete_buffer_loading = 1
+let g:rubycomplete_classes_in_global = 1
+let g:rubycomplete_include_object = 1
+let g:rubycomplete_include_object_space = 1
+let g:neocomplete#sources#omni#input_patterns.ruby='[^. *\t]\.\w*\|\h\w*::'
+
 autocmd FileType ruby,haml,eruby,sass,cucumber,mason setlocal ts=2 sts=2 sw=2 nowrap
 augroup RSpec
   autocmd!
@@ -295,7 +298,6 @@ augroup END
 "let g:rsenseHome='/usr/local/Cellar/rsense/0.3/libexec'
 "let g:rsenseUseOmniFunc=1
 "let g:neocomplcache_omni_functions.ruby='RSenseCompleteFunction'
-let g:neocomplete#sources#omni#input_patterns.ruby='[^. *\t]\.\w*\|\h\w*::'
 
 " マジックコメント自動追加関数
 function! AddMagicComment()
@@ -332,7 +334,7 @@ autocmd FileType sql setlocal ts=2 sts=2 sw=2
 " }}}
 
 " css {{{
-autocmd FileType css setlocal ts=2 sts=2 sw=2
+autocmd FileType css setlocal ts=2 sts=2 sw=2 omnifunc=csscomplete#CompleteCSS
 " }}}
 
 " scss {{{
@@ -340,7 +342,7 @@ autocmd FileType scss setlocal ts=2 sts=2 sw=2
 " }}}
 
 " JavaScript {{{
-autocmd FileType javascript setlocal ts=2 sts=2 sw=2
+autocmd FileType javascript setlocal ts=2 sts=2 sw=2 omnifunc=javascriptcomplete#CompleteJS
 " }}}
 
 " coffee script {{{
@@ -348,9 +350,9 @@ autocmd FileType coffee setlocal ts=2 sts=2 sw=2
 " }}}
 
 " HTML {{{
-autocmd FileType html,xhtml setlocal ts=2 sts=2 sw=2
+autocmd FileType html,xhtml setlocal ts=2 sts=2 sw=2 omnifunc=htmlcomplete#CompleteTags
 " }}}
 
 " XML {{{
-autocmd FileType xml setlocal ts=2 sts=2 sw=2
+autocmd FileType xml setlocal ts=2 sts=2 sw=2 omnifunc=xmlcomplete#CompleteTags
 " }}}
