@@ -213,16 +213,16 @@ let g:neocomplete#max_list=30
 inoremap <expr><TAB>   pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
 " 改行で確定
-inoremap <expr><C-CR> pumvisible() ? neocomplcache#close_popup() : "\<C-CR>"
+inoremap <expr><C-CR> pumvisible() ? neocomplete#close_popup() : "\<C-CR>"
 " BSでは補完候補のウィンドウを閉じる
-inoremap <expr><BS> pumvisible() ? neocomplcache#smart_close_popup() : "\<BS>"
+inoremap <expr><BS> pumvisible() ? neocomplete#smart_close_popup() : "\<BS>"
 " eclipse や visual studio のように Ctrl+Space で保管できるようにする
 inoremap <C-SPACE> <C-x><C-o>
-if !exists('g:neocomplcache_omni_functions')
+if !exists('g:neocomplete#sources#omni#functions')
   let g:neocomplete#sources#omni#functions={}
 endif
 " Enable heavy omni completion.
-if !exists('g:neocomplcache_omni_patterns')
+if !exists('g:neocomplete#sources#omni#input_patterns')
   let g:neocomplete#sources#omni#input_patterns={}
 endif
 " FileType毎のOmni補完を設定
@@ -296,7 +296,7 @@ augroup END
 "let g:rsenseHome='/usr/local/Cellar/rsense/0.3/libexec'
 "let g:rsenseUseOmniFunc=1
 "let g:neocomplcache_omni_functions.ruby='RSenseCompleteFunction'
-"let g:neocomplcache_omni_patterns.ruby='[^. *\t]\.\w*\|\h\w*::'
+let g:neocomplete#sources#omni#input_patterns.ruby='[^. *\t]\.\w*\|\h\w*::'
 
 " マジックコメント自動追加関数
 function! AddMagicComment()
