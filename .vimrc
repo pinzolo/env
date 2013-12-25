@@ -216,8 +216,8 @@ inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
 "inoremap <expr><C-CR> pumvisible() ? neocomplete#close_popup() : "\<C-CR>"
 " BSでは補完候補のウィンドウを閉じる
 inoremap <expr><BS> pumvisible() ? neocomplete#cancel_popup() : "\<BS>"
-" eclipse や visual studio のように Ctrl+Space で保管できるようにする
-inoremap <C-SPACE> <C-x><C-o>
+" Ctrl+Space で補完開始
+inoremap <expr><C-SPACE> neocomplete#start_manual_complete()
 if !exists('g:neocomplete#sources#omni#functions')
   let g:neocomplete#sources#omni#functions={}
 endif
@@ -230,7 +230,6 @@ autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType html       setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType css        setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType xml        setlocal omnifunc=xmlcomplete#CompleteTags
-
 " }}}
 
 " unite.vim {{{
