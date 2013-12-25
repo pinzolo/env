@@ -196,7 +196,7 @@ set foldmethod=marker
 
 " -------------------------------------------------- plugin settings
 
-" NeoComplCache {{{
+" neocomplete {{{
 " vim起動時に有効にする
 let g:neocomplete#enable_at_startup=1
 " 補完が自動で開始される文字数
