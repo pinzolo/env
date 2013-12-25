@@ -300,7 +300,7 @@ augroup END
 "let g:neocomplcache_omni_functions.ruby='RSenseCompleteFunction'
 
 " マジックコメント自動追加関数
-function! AddMagicComment()
+function! s:AddMagicComment()
   let pos = getpos('.')
   let line_index = 1
   let magic_comment = '# coding: utf-8'
@@ -315,10 +315,11 @@ function! AddMagicComment()
     return
   endif
   call cursor(line_index, 0)
-  execute ':normal O'.magic_comment
+  execute ':normal O' . magic_comment
   call setpos('.', pos)
+  execute ':normal j'
 endfunction
-autocmd BufWritePre *.rb :silent! call AddMagicComment()<CR>
+autocmd BufWritePre *.rb call s:AddMagicComment()
 " }}}
 
 " Java {{{
@@ -356,3 +357,17 @@ autocmd FileType html,xhtml setlocal ts=2 sts=2 sw=2 omnifunc=htmlcomplete#Compl
 " XML {{{
 autocmd FileType xml setlocal ts=2 sts=2 sw=2 omnifunc=xmlcomplete#CompleteTags
 " }}}
+
+" -------------------------------------------------- functions
+
+" 現在開いているファイルの同じディレクトリをカレントディレクトリにする
+command! -nargs=? -complete=dir CCD call s:ChangeCurrentDir('<args>')
+function! s:ChangeCurrentDir(directory)
+  if a:directory == ''
+    lcd %:p:h
+  else
+    execute 'lcd ' . a:directory
+  endif
+
+  pwd
+endfunction
