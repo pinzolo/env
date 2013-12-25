@@ -371,3 +371,22 @@ function! s:ChangeCurrentDir(directory)
 
   pwd
 endfunction
+
+" 現在開いているファイルのパスをレジスタへ
+function! s:ClipPath()
+  let @*=expand('%:p')
+endfunction
+
+" 現在開いているファイルのファイル名をレジスタへ
+function! s:ClipFile()
+  let @*=expand('%:t')
+endfunction
+
+" 現在開いているファイルのディレクトリパスをレジスタへ
+function! s:ClipDir()
+  let @*=expand('%:p:h')
+endfunction
+
+command! -nargs=0 ClipPath call s:ClipPath()
+command! -nargs=0 ClipFile call s:ClipFile()
+command! -nargs=0 ClipDir  call s:ClipDir()
