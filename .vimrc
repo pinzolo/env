@@ -374,7 +374,7 @@ endfunction
 
 " 現在開いているファイルのパスをレジスタへ
 function! s:ClipPath()
-  let @*=expand('%:p')
+  let @*=substitute(expand('%:p'), '\\', '/', "g")
 endfunction
 
 " 現在開いているファイルのファイル名をレジスタへ
@@ -384,7 +384,7 @@ endfunction
 
 " 現在開いているファイルのディレクトリパスをレジスタへ
 function! s:ClipDir()
-  let @*=expand('%:p:h')
+  let @*=substitute(expand('%:p:h'), '\\', '/', "g")
 endfunction
 
 command! -nargs=0 ClipPath call s:ClipPath()
