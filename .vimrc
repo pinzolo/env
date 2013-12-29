@@ -42,20 +42,20 @@ NeoBundle 'bling/vim-airline'
 NeoBundle 'osyo-manga/unite-fold'
 
 " colorschemes
+NeoBundle 'nanotech/jellybeans.vim'
+NeoBundle 'jpo/vim-railscasts-theme'
+NeoBundle 'w0ng/vim-hybrid'
+NeoBundle '29decibel/codeschool-vim-theme'
 "NeoBundle 'altercation/vim-colors-solarized'
 "NeoBundle 'croaker/mustang-vim'
 "NeoBundle 'jeffreyiacono/vim-colors-wombat'
-NeoBundle 'nanotech/jellybeans.vim'
 "NeoBundle 'vim-scripts/Lucius'
 "NeoBundle 'vim-scripts/Zenburn'
-NeoBundle 'jpo/vim-railscasts-theme'
 "NeoBundle 'therubymug/vim-pyte'
 "NeoBundle 'tomasr/molokai'
 "NeoBundle 'endel/vim-github-colorscheme'
 "NeoBundle 'baskerville/bubblegum'
-NeoBundle 'w0ng/vim-hybrid'
 "NeoBundle 'mitsuhiko/fruity-vim-colorscheme'
-NeoBundle '29decibel/codeschool-vim-theme'
 "NeoBundle 'vim-scripts/phd'
 "NeoBundle 'vim-scripts/twilight'
 "NeoBundle 'vim-scripts/rdark'
@@ -126,6 +126,8 @@ nmap ,dd i,dd<ESC>
 nmap ,dt i,dt<ESC>
 " 保存時に行末の空白を削除する
 autocmd BufWritePre * :%s/\s\+$//ge
+" insertモード時に C-v でペースト
+inoremap <C-v> <ESC>pa
 " }}}
 
 " cursor {{{
@@ -372,19 +374,25 @@ function! s:ChangeCurrentDir(directory)
   pwd
 endfunction
 
+" 指定のデータをレジスタに登録する
+function! l:Clip(data)
+  let @*=a:data
+  echo "clipped: " . a:data
+endfunction
+
 " 現在開いているファイルのパスをレジスタへ
 function! s:ClipPath()
-  let @*=expand('%:p')
+  call l:Clip(expand('%:p'))
 endfunction
 
 " 現在開いているファイルのファイル名をレジスタへ
 function! s:ClipFile()
-  let @*=expand('%:t')
+  call l:Clip(expand('%:t'))
 endfunction
 
 " 現在開いているファイルのディレクトリパスをレジスタへ
 function! s:ClipDir()
-  let @*=expand('%:p:h')
+  call l:Clip(expand('%:p:h'))
 endfunction
 
 command! -nargs=0 ClipPath call s:ClipPath()
