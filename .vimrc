@@ -375,14 +375,14 @@ function! s:ChangeCurrentDir(directory)
 endfunction
 
 " 指定のデータをレジスタに登録する
-function! l:Clip(data)
+function! s:Clip(data)
   let @*=a:data
   echo "clipped: " . a:data
 endfunction
 
 " 現在開いているファイルのパスをレジスタへ
-command! -nargs=0 ClipPath call l:Clip(expand('%:p'))
+command! -nargs=0 ClipPath call s:Clip(expand('%:p'))
 " 現在開いているファイルのファイル名をレジスタへ
-command! -nargs=0 ClipFile call l:Clip(expand('%:t'))
+command! -nargs=0 ClipFile call s:Clip(expand('%:t'))
 " 現在開いているファイルのディレクトリパスをレジスタへ
-command! -nargs=0 ClipDir  call l:Clip(expand('%:p:h'))
+command! -nargs=0 ClipDir  call s:Clip(expand('%:p:h'))
