@@ -381,20 +381,8 @@ function! l:Clip(data)
 endfunction
 
 " 現在開いているファイルのパスをレジスタへ
-function! s:ClipPath()
-  call l:Clip(expand('%:p'))
-endfunction
-
+command! -nargs=0 ClipPath call l:Clip(expand('%:p'))
 " 現在開いているファイルのファイル名をレジスタへ
-function! s:ClipFile()
-  call l:Clip(expand('%:t'))
-endfunction
-
+command! -nargs=0 ClipFile call l:Clip(expand('%:t'))
 " 現在開いているファイルのディレクトリパスをレジスタへ
-function! s:ClipDir()
-  call l:Clip(expand('%:p:h'))
-endfunction
-
-command! -nargs=0 ClipPath call s:ClipPath()
-command! -nargs=0 ClipFile call s:ClipFile()
-command! -nargs=0 ClipDir  call s:ClipDir()
+command! -nargs=0 ClipDir  call l:Clip(expand('%:p:h'))
