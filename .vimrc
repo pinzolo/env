@@ -235,7 +235,7 @@ endif
 let g:unite_enable_split_vertically = 1
 " unite.vim の prefix key
 nnoremap [unite] <Nop>
-nmap ; [unite]
+nmap ;; [unite]
 " バッファ
 nnoremap <silent> [unite]b :<C-u>Unite buffer<CR>
 " ファイル
@@ -248,17 +248,20 @@ nnoremap <silent> [unite]m :<C-u>Unite buffer file_mru<CR>
 nnoremap <silent> [unite]o :<C-u>Unite outline<CR>
 " 折りたたみから選択
 nnoremap <silent> [unite]l :<C-u>Unite fold<CR>
+
 " unite-rails {{{
+nnoremap [unite-rails] <Nop>
+nmap ;r [unite-rails]
 " model 選択
-nnoremap <silent> [unite]rm :<C-u>Unite rails/model<CR>
+nnoremap <silent> [unite-rails]m :<C-u>Unite rails/model<CR>
 " controller 選択
-nnoremap <silent> [unite]rc :<C-u>Unite rails/controller<CR>
+nnoremap <silent> [unite-rails]c :<C-u>Unite rails/controller<CR>
 " view 選択
-nnoremap <silent> [unite]rv :<C-u>Unite rails/view<CR>
+nnoremap <silent> [unite-rails]v :<C-u>Unite rails/view<CR>
 " helper 選択
-nnoremap <silent> [unite]rh :<C-u>Unite rails/helper<CR>
+nnoremap <silent> [unite-rails]h :<C-u>Unite rails/helper<CR>
 " db 選択
-nnoremap <silent> [unite]rd :<C-u>Unite rails/db<CR>
+nnoremap <silent> [unite-rails]d :<C-u>Unite rails/db<CR>
 " }}}
 " }}}
 
