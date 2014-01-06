@@ -283,6 +283,16 @@ let g:quickrun_config._ = {'runner' : 'vimproc'}
 let g:quickrun_config['ruby.rspec'] = { 'command': 'rspec', 'cmdopt': 'bundle exec', 'exec': '%o %c %s' }
 " }}}
 
+" vimshell {{{
+let g:vimshell_prompt_expr = 'getcwd()." % "'
+let g:vimshell_prompt_pattern = '^\f\+ % '
+"let g:vimshell_split_command = 'split'
+nnoremap [vimshell] <Nop>
+nmap ;s [vimshell]
+nnoremap <silent> [vimshell]s :<C-u>VimShell<CR>
+nnoremap <silent> [vimshell]r :<C-u>VimShellInteractive irb<CR>
+" }}}
+
 " -------------------------------------------------- language settings
 
 " Ruby {{{
