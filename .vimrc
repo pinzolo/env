@@ -141,6 +141,7 @@ inoremap <C-l> <Right>
 inoremap {} {}<LEFT>
 inoremap [] []<LEFT>
 inoremap () ()<LEFT>
+inoremap <> <><LEFT>
 inoremap "" ""<LEFT>
 inoremap '' ''<LEFT>
 " }}}
