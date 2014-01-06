@@ -119,12 +119,12 @@ set iminsert=0 imsearch=0
 set noimcmdline
 inoremap <silent> <ESC> <ESC>:set iminsert=0<CR>
 " 日時入力
-inoremap <expr> ,df strftime('%Y/%m/%d %H:%M:%S')
-inoremap <expr> ,dd strftime('%Y/%m/%d')
-inoremap <expr> ,dt strftime('%H:%M:%S')
-nmap ,df i,df<ESC>
-nmap ,dd i,dd<ESC>
-nmap ,dt i,dt<ESC>
+inoremap <expr> ;df strftime('%Y-%m-%d %H:%M:%S')
+inoremap <expr> ;dd strftime('%Y-%m-%d')
+inoremap <expr> ;dt strftime('%H:%M:%S')
+nmap ;df i;df<ESC>
+nmap ;dd i;dd<ESC>
+nmap ;dt i;dt<ESC>
 " 保存時に行末の空白を削除する
 autocmd BufWritePre * :%s/\s\+$//ge
 " insertモード時に C-v でペースト
