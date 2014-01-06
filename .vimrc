@@ -297,6 +297,10 @@ nmap ;f [vimfiler]
 nnoremap [vimfiler]f :<C-u>VimFiler<CR>
 " }}}
 
+" vim-markdown {{{
+let g:vim_markdown_folding_disabled=1
+" }}}
+
 " -------------------------------------------------- language settings
 
 " Ruby {{{
