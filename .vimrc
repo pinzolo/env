@@ -293,6 +293,12 @@ nnoremap <silent> [vimshell]s :<C-u>VimShell<CR>
 nnoremap <silent> [vimshell]r :<C-u>VimShellInteractive irb<CR>
 " }}}
 
+" vimfiler {{{
+nnoremap [vimfiler] <Nop>
+nmap ;f [vimfiler]
+nnoremap [vimfiler]f :<C-u>VimFiler<CR>
+" }}}
+
 " -------------------------------------------------- language settings
 
 " Ruby {{{
