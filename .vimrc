@@ -40,6 +40,7 @@ NeoBundle 'h1mesuke/unite-outline'
 NeoBundle 'ujihisa/unite-colorscheme'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'osyo-manga/unite-fold'
+NeoBundle 'rcmdnk/vim-markdown'
 
 " colorschemes
 NeoBundle 'nanotech/jellybeans.vim'
@@ -123,7 +124,7 @@ nmap ;df i;df<ESC>
 nmap ;dd i;dd<ESC>
 nmap ;dt i;dt<ESC>
 " 保存時に行末の空白を削除する（ただし Markdown は除外）
-autocmd BufWritePre * if &filetype !=? 'mkd' | %s/\s\+$//ge | endif
+autocmd BufWritePre * if &filetype !=? 'markdwon' | %s/\s\+$//ge | endif
 " insertモード時に C-v でペースト
 inoremap <C-v> <ESC>pa
 " }}}
