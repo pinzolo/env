@@ -17,7 +17,6 @@ NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/neosnippet.vim'
 NeoBundle 'Shougo/unite.vim'
-"NeoBundle 'Shougo/rsense'
 NeoBundle 'Shougo/vimfiler.vim'
 NeoBundle 'Shougo/vimshell.vim'
 NeoBundle 'Shougo/junkfile.vim'
@@ -86,8 +85,6 @@ set formatoptions=lmoq
 set browsedir=buffer
 " 改行時にコメントしない
 autocmd FileType * set formatoptions-=ro
-" ノーマルモードでは ; を : として扱う
-"nnoremap ; :
 " }}}
 
 " display {{{
@@ -125,8 +122,8 @@ inoremap <expr> ;dt strftime('%H:%M:%S')
 nmap ;df i;df<ESC>
 nmap ;dd i;dd<ESC>
 nmap ;dt i;dt<ESC>
-" 保存時に行末の空白を削除する
-autocmd BufWritePre * :%s/\s\+$//ge
+" 保存時に行末の空白を削除する（ただし Markdown は除外）
+autocmd BufWritePre * if &filetype !=? 'mkd' | %s/\s\+$//ge | endif
 " insertモード時に C-v でペースト
 inoremap <C-v> <ESC>pa
 " }}}
@@ -287,7 +284,7 @@ let g:quickrun_config['ruby.rspec'] = { 'command': 'rspec', 'cmdopt': 'bundle ex
 " vimshell {{{
 let g:vimshell_prompt_expr = 'getcwd()." % "'
 let g:vimshell_prompt_pattern = '^\f\+ % '
-"let g:vimshell_split_command = 'split'
+"let g:vimshell_split_command = "split"
 nnoremap [vimshell] <Nop>
 nmap ;s [vimshell]
 nnoremap <silent> [vimshell]s :<C-u>VimShell<CR>
