@@ -11,7 +11,7 @@ if has('vim_starting')
   call neobundle#rc(expand('~/.vim/bundle'))
 endif
 
-" plugins
+" plugins {{{
 NeoBundle 'Shougo/vimproc.vim'
 NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'Shougo/neobundle.vim'
@@ -41,8 +41,9 @@ NeoBundle 'ujihisa/unite-colorscheme'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'osyo-manga/unite-fold'
 NeoBundle 'rcmdnk/vim-markdown'
+" }}}
 
-" colorschemes
+" colorschemes {{{
 NeoBundle 'nanotech/jellybeans.vim'
 NeoBundle 'jpo/vim-railscasts-theme'
 NeoBundle 'w0ng/vim-hybrid'
@@ -61,6 +62,7 @@ NeoBundle '29decibel/codeschool-vim-theme'
 "NeoBundle 'vim-scripts/twilight'
 "NeoBundle 'vim-scripts/rdark'
 "NeoBundle 'mrkn/mrkn256.vim'
+" }}}
 " }}}
 
 " -------------------------------------------------- common settings
