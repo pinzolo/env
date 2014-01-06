@@ -12,13 +12,14 @@ if has('vim_starting')
 endif
 
 " plugins
-NeoBundle 'Shougo/vimproc'
+NeoBundle 'Shougo/vimproc.vim'
 NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'Shougo/neobundle.vim'
-NeoBundle 'Shougo/neosnippet'
+NeoBundle 'Shougo/neosnippet.vim'
 NeoBundle 'Shougo/unite.vim'
 "NeoBundle 'Shougo/rsense'
-NeoBundle 'Shougo/vimfiler'
+NeoBundle 'Shougo/vimfiler.vim'
+NeoBundle 'Shougo/vimshell.vim'
 NeoBundle 'Shougo/junkfile.vim'
 NeoBundle 'tsaleh/vim-matchit'
 NeoBundle 'tpope/vim-rails'
