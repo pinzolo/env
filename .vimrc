@@ -122,9 +122,9 @@ inoremap <silent> <ESC> <ESC>:set iminsert=0<CR>
 inoremap <expr> ;df strftime('%Y-%m-%d %H:%M:%S')
 inoremap <expr> ;dd strftime('%Y-%m-%d')
 inoremap <expr> ;dt strftime('%H:%M:%S')
-nmap ;df i;df<ESC>
-nmap ;dd i;dd<ESC>
-nmap ;dt i;dt<ESC>
+nmap ;df a;df<ESC>
+nmap ;dd a;dd<ESC>
+nmap ;dt a;dt<ESC>
 " 保存時に行末の空白を削除する（ただし Markdown は除外）
 autocmd BufWritePre * if &filetype !=? 'markdwon' | %s/\s\+$//ge | endif
 " insertモード時に C-v でペースト
@@ -182,7 +182,7 @@ noremap n nzz
 noremap N Nzz
 " grep 設定
 let Grep_Skip_Dirs='.svn .git'
-let Grep_Skip_Files='*.bak *~ *.swp *.log'
+let Grep_Skip_Files='*.bak *~ *.swp *.log *.class'
 " }}}
 
 " backup {{{
