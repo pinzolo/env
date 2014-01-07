@@ -140,8 +140,12 @@ inoremap <C-l> <Right>
 inoremap {} {}<LEFT>
 inoremap [] []<LEFT>
 inoremap () ()<LEFT>
+inoremap <> <><LEFT>
 inoremap "" ""<LEFT>
 inoremap '' ''<LEFT>
+" ページ移動時のカーソルをページ中央に
+nnoremap <C-f> <C-f>zz
+nnoremap <C-b> <C-b>zz
 " }}}
 
 " buffer {{{
@@ -176,11 +180,11 @@ set wrapscan
 nnoremap <silent> <ESC><ESC> :<C-u>set nohlsearch<CR><ESC>
 nnoremap / :<C-u>set hlsearch<CR>/
 " 検索箇所を常に中央に
-noremap n nzz
-noremap N Nzz
+nnoremap n nzz
+nnoremap N Nzz
 " grep 設定
 let Grep_Skip_Dirs='.svn .git'
-let Grep_Skip_Files='*.bak *~ *.swp *.log'
+let Grep_Skip_Files='*.bak *~ *.swp *.log *.class'
 " }}}
 
 " backup {{{
