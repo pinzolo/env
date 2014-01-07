@@ -387,7 +387,7 @@ autocmd FileType xml setlocal ts=2 sts=2 sw=2 omnifunc=xmlcomplete#CompleteTags
 
 " -------------------------------------------------- functions
 
-" 現在開いているファイルの同じディレクトリをカレントディレクトリにする
+" 現在開いているファイルのディレクトリをカレントディレクトリにする
 command! -nargs=? -complete=dir CCD call s:ChangeCurrentDir('<args>')
 function! s:ChangeCurrentDir(directory)
   if a:directory == ''
