@@ -11,14 +11,14 @@ if has('vim_starting')
   call neobundle#rc(expand('~/.vim/bundle'))
 endif
 
-" plugins
-NeoBundle 'Shougo/vimproc'
+" plugins {{{
+NeoBundle 'Shougo/vimproc.vim'
 NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'Shougo/neobundle.vim'
-NeoBundle 'Shougo/neosnippet'
+NeoBundle 'Shougo/neosnippet.vim'
 NeoBundle 'Shougo/unite.vim'
-"NeoBundle 'Shougo/rsense'
-NeoBundle 'Shougo/vimfiler'
+NeoBundle 'Shougo/vimfiler.vim'
+NeoBundle 'Shougo/vimshell.vim'
 NeoBundle 'Shougo/junkfile.vim'
 NeoBundle 'tsaleh/vim-matchit'
 NeoBundle 'tpope/vim-rails'
@@ -40,8 +40,10 @@ NeoBundle 'h1mesuke/unite-outline'
 NeoBundle 'ujihisa/unite-colorscheme'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'osyo-manga/unite-fold'
+NeoBundle 'rcmdnk/vim-markdown'
+" }}}
 
-" colorschemes
+" colorschemes {{{
 NeoBundle 'nanotech/jellybeans.vim'
 NeoBundle 'jpo/vim-railscasts-theme'
 NeoBundle 'w0ng/vim-hybrid'
@@ -60,6 +62,7 @@ NeoBundle '29decibel/codeschool-vim-theme'
 "NeoBundle 'vim-scripts/twilight'
 "NeoBundle 'vim-scripts/rdark'
 "NeoBundle 'mrkn/mrkn256.vim'
+" }}}
 " }}}
 
 " -------------------------------------------------- common settings
@@ -85,8 +88,6 @@ set formatoptions=lmoq
 set browsedir=buffer
 " 改行時にコメントしない
 autocmd FileType * set formatoptions-=ro
-" ノーマルモードでは ; を : として扱う
-"nnoremap ; :
 " }}}
 
 " display {{{
@@ -118,14 +119,14 @@ set iminsert=0 imsearch=0
 set noimcmdline
 inoremap <silent> <ESC> <ESC>:set iminsert=0<CR>
 " 日時入力
-inoremap <expr> ,df strftime('%Y/%m/%d %H:%M:%S')
-inoremap <expr> ,dd strftime('%Y/%m/%d')
-inoremap <expr> ,dt strftime('%H:%M:%S')
-nmap ,df i,df<ESC>
-nmap ,dd i,dd<ESC>
-nmap ,dt i,dt<ESC>
-" 保存時に行末の空白を削除する
-autocmd BufWritePre * :%s/\s\+$//ge
+inoremap <expr> ;df strftime('%Y-%m-%d %H:%M:%S')
+inoremap <expr> ;dd strftime('%Y-%m-%d')
+inoremap <expr> ;dt strftime('%H:%M:%S')
+nmap ;df a;df<ESC>
+nmap ;dd a;dd<ESC>
+nmap ;dt a;dt<ESC>
+" 保存時に行末の空白を削除する（ただし Markdown は除外）
+autocmd BufWritePre * if &filetype !=? 'markdwon' | %s/\s\+$//ge | endif
 " insertモード時に C-v でペースト
 inoremap <C-v> <ESC>pa
 " }}}
@@ -238,7 +239,7 @@ endif
 let g:unite_enable_split_vertically = 1
 " unite.vim の prefix key
 nnoremap [unite] <Nop>
-nmap ; [unite]
+nmap ;; [unite]
 " バッファ
 nnoremap <silent> [unite]b :<C-u>Unite buffer<CR>
 " ファイル
@@ -251,17 +252,20 @@ nnoremap <silent> [unite]m :<C-u>Unite buffer file_mru<CR>
 nnoremap <silent> [unite]o :<C-u>Unite outline<CR>
 " 折りたたみから選択
 nnoremap <silent> [unite]l :<C-u>Unite fold<CR>
+
 " unite-rails {{{
+nnoremap [unite-rails] <Nop>
+nmap ;r [unite-rails]
 " model 選択
-nnoremap <silent> [unite]rm :<C-u>Unite rails/model<CR>
+nnoremap <silent> [unite-rails]m :<C-u>Unite rails/model<CR>
 " controller 選択
-nnoremap <silent> [unite]rc :<C-u>Unite rails/controller<CR>
+nnoremap <silent> [unite-rails]c :<C-u>Unite rails/controller<CR>
 " view 選択
-nnoremap <silent> [unite]rv :<C-u>Unite rails/view<CR>
+nnoremap <silent> [unite-rails]v :<C-u>Unite rails/view<CR>
 " helper 選択
-nnoremap <silent> [unite]rh :<C-u>Unite rails/helper<CR>
+nnoremap <silent> [unite-rails]h :<C-u>Unite rails/helper<CR>
 " db 選択
-nnoremap <silent> [unite]rd :<C-u>Unite rails/db<CR>
+nnoremap <silent> [unite-rails]d :<C-u>Unite rails/db<CR>
 " }}}
 " }}}
 
@@ -281,6 +285,26 @@ let g:airline_branch_empty_message = "[!git]"
 let g:quickrun_config = {}
 let g:quickrun_config._ = {'runner' : 'vimproc'}
 let g:quickrun_config['ruby.rspec'] = { 'command': 'rspec', 'cmdopt': 'bundle exec', 'exec': '%o %c %s' }
+" }}}
+
+" vimshell {{{
+let g:vimshell_prompt_expr = 'getcwd()." % "'
+let g:vimshell_prompt_pattern = '^\f\+ % '
+"let g:vimshell_split_command = "split"
+nnoremap [vimshell] <Nop>
+nmap ;s [vimshell]
+nnoremap <silent> [vimshell]s :<C-u>VimShell<CR>
+nnoremap <silent> [vimshell]r :<C-u>VimShellInteractive irb<CR>
+" }}}
+
+" vimfiler {{{
+nnoremap [vimfiler] <Nop>
+nmap ;f [vimfiler]
+nnoremap [vimfiler]f :<C-u>VimFiler<CR>
+" }}}
+
+" vim-markdown {{{
+let g:vim_markdown_folding_disabled=1
 " }}}
 
 " -------------------------------------------------- language settings
@@ -366,7 +390,7 @@ autocmd FileType xml setlocal ts=2 sts=2 sw=2 omnifunc=xmlcomplete#CompleteTags
 
 " -------------------------------------------------- functions
 
-" 現在開いているファイルの同じディレクトリをカレントディレクトリにする
+" 現在開いているファイルのディレクトリをカレントディレクトリにする
 command! -nargs=? -complete=dir CCD call s:ChangeCurrentDir('<args>')
 function! s:ChangeCurrentDir(directory)
   if a:directory == ''
