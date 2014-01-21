@@ -132,11 +132,15 @@ inoremap <C-v> <C-r>+
 " }}}
 
 " cursor {{{
-" インサートモードでのカーソル移動
-inoremap <C-j> <Down>
-inoremap <C-k> <Up>
-inoremap <C-h> <Left>
-inoremap <C-l> <Right>
+" インサートモードでのカーソル移動(暫定的にポップアップ対応)
+"inoremap <C-j> <DOWN>
+"inoremap <C-k> <UP>
+"inoremap <C-h> <LEFT>
+"inoremap <C-l> <RIGHT>
+imap <expr><C-j> pumvisible() ? "\<BS><DOWN>"  : "\<DOWN>"
+imap <expr><C-k> pumvisible() ? "\<BS><UP>"    : "\<UP>"
+imap <expr><C-h> pumvisible() ? "\<BS><LEFT>"  : "\<LEFT>"
+imap <expr><C-l> pumvisible() ? "\<BS><RIGHT>" : "\<RIGHT>"
 " ペア入力時のカーソル移動
 inoremap {} {}<LEFT>
 inoremap [] []<LEFT>
@@ -144,6 +148,7 @@ inoremap () ()<LEFT>
 inoremap <> <><LEFT>
 inoremap "" ""<LEFT>
 inoremap '' ''<LEFT>
+inoremap <%%> <% %><LEFT><LEFT><LEFT>
 " ページ移動時のカーソルをページ中央に
 nnoremap <C-f> <C-f>zz
 nnoremap <C-b> <C-b>zz
