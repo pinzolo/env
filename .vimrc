@@ -128,7 +128,7 @@ nmap ;dt a;dt<ESC>
 " 保存時に行末の空白を削除する（ただし Markdown は除外）
 autocmd BufWritePre * if &filetype !=? 'markdwon' | %s/\s\+$//ge | endif
 " insertモード時に C-v でペースト
-inoremap <C-v> <ESC>pa
+inoremap <C-v> <C-r>+
 " }}}
 
 " cursor {{{
