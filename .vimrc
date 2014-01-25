@@ -12,10 +12,16 @@ if has('vim_starting')
 endif
 
 " plugins {{{
-NeoBundle 'Shougo/vimproc.vim'
+NeoBundle 'Shougo/vimproc.vim', {
+  \ 'build' : {
+    \ 'mac'  : 'make -f make_mac.mak',
+    \ 'unix' : 'make -f make_unix.mak'
+  \ },
+\ }
 NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/neosnippet.vim'
+NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/vimfiler.vim'
 NeoBundle 'Shougo/vimshell.vim'
