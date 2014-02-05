@@ -1,0 +1,10 @@
+*.rb diff=ruby
+*.cs diff=csharp
+*.c diff=cpp
+*.cpp diff=cpp
+*.h diff=cpp
+*.php diff=php
+*.java diff=java
+*.js diff=java
+*.html diff=html
+*.py diff=python
