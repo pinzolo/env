@@ -6,6 +6,7 @@
 	editor = vim
 	excludesfile = /Users/pinzolo/.gitignore
 	precomposeunicode = true
+	attributesfile = /Users/pinzolo/.gitattributes
 [color]
 	ui = auto
 [alias]
