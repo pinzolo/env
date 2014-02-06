@@ -14,7 +14,7 @@
 	cm = commit
 	st = status
 	br = branch
-	hist = log --pretty=format:\\\"%h %ad | %s%d [%an]\\\" --graph --date=short
+	graph = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset' --abbrev-commit --date=short
 	mr = merge
 [merge]
 	ff = false
