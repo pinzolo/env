@@ -47,6 +47,8 @@ NeoBundle 'ujihisa/unite-colorscheme'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'osyo-manga/unite-fold'
 NeoBundle 'rcmdnk/vim-markdown'
+NeoBundle 'kannokanno/previm'
+NeoBundle 'tyru/open-browser.vim'
 " }}}
 
 " colorschemes {{{
