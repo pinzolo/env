@@ -28,7 +28,7 @@ NeoBundle 'Shougo/vimfiler.vim'
 NeoBundle 'Shougo/vimshell.vim'
 NeoBundle 'Shougo/junkfile.vim'
 NeoBundle 'Shougo/unite-outline'
-NeoBundle 'tsaleh/vim-matchit'
+NeoBundle 'edsono/vim-matchit'
 NeoBundle 'tpope/vim-rails'
 NeoBundle 'tpope/vim-haml'
 NeoBundle 'tpope/vim-surround'
@@ -368,6 +368,7 @@ autocmd BufWritePre *.rb call s:AddMagicComment()
 
 " Java {{{
 autocmd FileType java setlocal ts=4 sts=4 sw=4
+au BufNewFile,BufRead *.ftl setlocal ft=jsp
 " }}}
 
 " sh {{{
