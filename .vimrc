@@ -259,7 +259,7 @@ nnoremap <silent> [unite]b :<C-u>Unite buffer<CR>
 " ファイル
 nnoremap <silent> [unite]f :<C-u>Unite -buffer-name=files file<CR>
 " ファイル(再帰)
-nnoremap <silent> [unite]f :<C-u>Unite -buffer-name=files file_rec<CR>
+nnoremap <silent> [unite]r :<C-u>Unite -buffer-name=files file_rec<CR>
 " 現在開いているファイルと同じディレクトリから選択
 nnoremap <silent> [unite]c :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
 " 最近使用したファイルから選択
