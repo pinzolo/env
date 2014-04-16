@@ -268,6 +268,8 @@ nnoremap <silent> [unite]m :<C-u>Unite buffer file_mru<CR>
 nnoremap <silent> [unite]o :<C-u>Unite outline<CR>
 " 折りたたみから選択
 nnoremap <silent> [unite]l :<C-u>Unite fold<CR>
+" grep
+nnoremap <silent> [unite]g :<C-u>Unite grep<CR>
 
 " unite-rails {{{
 nnoremap [unite-rails] <Nop>
