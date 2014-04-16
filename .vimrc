@@ -251,6 +251,7 @@ endif
 " unite.vim {{{
 " 垂直分割にする
 let g:unite_enable_split_vertically = 1
+let g:unite_winwidth = 120
 " unite.vim の prefix key
 nnoremap [unite] <Nop>
 nmap ;; [unite]
