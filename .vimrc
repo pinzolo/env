@@ -50,6 +50,7 @@ NeoBundle 'osyo-manga/unite-fold'
 NeoBundle 'rcmdnk/vim-markdown'
 NeoBundle 'kannokanno/previm'
 NeoBundle 'tyru/open-browser.vim'
+NeoBundle 'kmnk/vim-unite-giti'
 " }}}
 
 " colorschemes {{{
@@ -285,6 +286,15 @@ nnoremap <silent> [unite-rails]v :<C-u>Unite rails/view<CR>
 nnoremap <silent> [unite-rails]h :<C-u>Unite rails/helper<CR>
 " db 選択
 nnoremap <silent> [unite-rails]d :<C-u>Unite rails/db<CR>
+" }}}
+
+" unite-giti {{{
+nnoremap [unite-giti] <Nop>
+nmap ;g [unite-giti]
+nnoremap <silent> [unite-giti]b :<C-u>Unite giti/branch<CR>
+nnoremap <silent> [unite-giti]s :<C-u>Unite giti/status<CR>
+nnoremap <silent> [unite-giti]r :<C-u>Unite giti/remote<CR>
+nnoremap <silent> [unite-giti]l :<C-u>Unite giti/log<CR>
 " }}}
 " }}}
 
