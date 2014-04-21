@@ -12,10 +12,11 @@
 [alias]
 	co = checkout
 	cm = commit
-	st = status -sb
+	st = status --branch --short
 	br = branch
 	graph = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset' --abbrev-commit --date=short
 	mr = merge
+	gr = grep --line-number --show-function --color --heading --break
 [merge]
 	ff = false
 [push]
