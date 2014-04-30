@@ -51,6 +51,7 @@ NeoBundle 'rcmdnk/vim-markdown'
 NeoBundle 'kannokanno/previm'
 NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'kmnk/vim-unite-giti'
+NeoBundle 'todesking/ruby_hl_lvar.vim'
 " }}}
 
 " colorschemes {{{
@@ -334,6 +335,18 @@ nnoremap [vimfiler]f :<C-u>VimFiler<CR>
 
 " vim-markdown {{{
 let g:vim_markdown_folding_disabled=1
+" }}}
+
+" ruby_hl_lvar {{{
+let g:ruby_hl_lvar_hl_group = 'rubyLocalVariable'
+" }}}
+
+" jellybeans {{{
+let g:jellybeans_overrides = {
+\    'rubyLocalVariable': { 'guifg': 'c59f6f', 'guibg': '',
+\              'ctermfg': '', 'ctermbg': 'Yellow',
+\              'attr': '' },
+\}
 " }}}
 
 " -------------------------------------------------- language settings
