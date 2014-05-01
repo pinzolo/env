@@ -153,3 +153,7 @@ case "$OSTYPE" in
   linux*)
     ;;
 esac
+
+# for homebrew-casl
+export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+
