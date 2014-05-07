@@ -1,5 +1,6 @@
 *.log
 *.swp
+*.un~
 *.class
 .DS_Store
 .ruby-version
