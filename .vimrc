@@ -391,7 +391,8 @@ function! s:AddMagicComment()
   call setpos('.', pos)
   execute ':normal j'
 endfunction
-autocmd BufWritePre *.rb call s:AddMagicComment()
+" 暫定解除（しばらく様子見る）
+"autocmd BufWritePre *.rb call s:AddMagicComment()
 " }}}
 
 " Java {{{
