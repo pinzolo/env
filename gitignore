@@ -6,3 +6,4 @@
 .ruby-version
 **/vendor/bundle
 .bundle
+Thumbs.db
