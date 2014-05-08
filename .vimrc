@@ -207,7 +207,7 @@ let Grep_Skip_Files='*.bak *~ *.swp *.log *.class'
 " backup {{{
 set backupdir=~/.vim/temp
 set directory=~/.vim/temp
-set browsedir=buffer
+set undodir=~/.vim/temp
 " }}}
 
 " folding {{{
