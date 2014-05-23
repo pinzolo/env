@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-files = %w(bashrc gemrc gitconfig gitignore gvimrc railsrc rspec screenrc vimrc zshenv zshrc)
+files = %w(bashrc gemrc gitattributes gitconfig gitignore gvimrc railsrc rspec screenrc vimrc zshenv zshrc)
 dirs = %w(vim)
 
 home = File.expand_path('~')
