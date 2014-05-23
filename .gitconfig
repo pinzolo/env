@@ -14,9 +14,14 @@
 	cm = commit
 	st = status --branch --short
 	br = branch
+	brr = branch --remote
+	bra = branch --all
 	graph = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset' --abbrev-commit --date=short
 	mr = merge
 	gr = grep --line-number --show-function --color --heading --break
+	rb = rebase
+	rbm = rebase master
+	rbi = rebase --interactive
 [merge]
 	ff = false
 [push]
