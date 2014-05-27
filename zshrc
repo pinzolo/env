@@ -145,6 +145,13 @@ function ff() {
 # rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
 
+# pyenv
+if which pyenv > /dev/null; then
+  export PYENV_ROOT="\${HOME}/.pyenv"
+  export PATH=\${PYENV_ROOT}/shims:\${PATH}
+  eval "\$(pyenv init -)";
+fi
+
 # for postgresql on mac OS X
 case "$OSTYPE" in
   darwin*)
@@ -154,6 +161,6 @@ case "$OSTYPE" in
     ;;
 esac
 
-# for homebrew-casl
+# for homebrew-cask
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
