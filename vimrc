@@ -144,14 +144,14 @@ inoremap <C-v> <C-r>+
 
 " cursor {{{
 " インサートモードでのカーソル移動(暫定的にポップアップ対応)
-"inoremap <C-j> <DOWN>
-"inoremap <C-k> <UP>
-"inoremap <C-h> <LEFT>
-"inoremap <C-l> <RIGHT>
-imap <expr><C-j> pumvisible() ? "\<BS><DOWN>"  : "\<DOWN>"
-imap <expr><C-k> pumvisible() ? "\<BS><UP>"    : "\<UP>"
-imap <expr><C-h> pumvisible() ? "\<BS><LEFT>"  : "\<LEFT>"
-imap <expr><C-l> pumvisible() ? "\<BS><RIGHT>" : "\<RIGHT>"
+inoremap <C-j> <DOWN>
+inoremap <C-k> <UP>
+inoremap <C-h> <LEFT>
+inoremap <C-l> <RIGHT>
+"imap <expr><C-j> pumvisible() ? "\<BS><DOWN>"  : "\<DOWN>"
+"imap <expr><C-k> pumvisible() ? "\<BS><UP>"    : "\<UP>"
+"imap <expr><C-h> pumvisible() ? "\<BS><LEFT>"  : "\<LEFT>"
+"imap <expr><C-l> pumvisible() ? "\<BS><RIGHT>" : "\<RIGHT>"
 " ペア入力時のカーソル移動
 inoremap {} {}<LEFT>
 inoremap [] []<LEFT>
@@ -248,6 +248,10 @@ endif
 if !exists('g:neocomplete#sources#omni#input_patterns')
   let g:neocomplete#sources#omni#input_patterns={}
 endif
+" }}}
+
+" neosnippet {{{
+imap <C-f> <Plug>(neosnippet_expand_or_jump)
 " }}}
 
 " unite.vim {{{
