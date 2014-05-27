@@ -328,9 +328,12 @@ nnoremap <silent> [vimshell]r :<C-u>VimShellInteractive irb<CR>
 " }}}
 
 " vimfiler {{{
+let g:vimfiler_safe_mode_by_default = 0
+let g:vimfiler_as_default_explorer = 1
 nnoremap [vimfiler] <Nop>
 nmap ;f [vimfiler]
 nnoremap [vimfiler]f :<C-u>VimFiler<CR>
+nnoremap <silent> [vimfiler]e :<C-U>VimFiler -buffer-name=explorer -split -simple -winwidth=40 -toggle -no-quit<CR>
 " }}}
 
 " vim-markdown {{{
