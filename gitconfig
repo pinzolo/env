@@ -22,6 +22,7 @@
 	rb = rebase
 	rbm = rebase master
 	rbi = rebase --interactive
+	show-ignored = ls-files --exclude-standard --others --ignored
 [merge]
 	ff = false
 [push]
