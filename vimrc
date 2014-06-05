@@ -53,6 +53,7 @@ NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'kmnk/vim-unite-giti'
 NeoBundle 'todesking/ruby_hl_lvar.vim'
 NeoBundle 'pangloss/vim-javascript'
+NeoBundle 'scrooloose/syntastic'
 " }}}
 
 " colorschemes {{{
