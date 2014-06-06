@@ -160,3 +160,19 @@ esac
 # for homebrew-cask
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
+# for GO
+export GOPATH=$HOME
+export PATH="$HOME/bin:$PATH"
+
+# for percol
+function percol-src() {
+    local selected_dir=$(ghq list --full-path | percol --query "$LBUFFER")
+    if [ -n "$selected_dir" ]; then
+        BUFFER="cd ${selected_dir}"
+        zle accept-line
+    fi
+    zle clear-screen
+}
+zle -N percol-src
+bindkey '^S' percol-src
+

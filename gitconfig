@@ -35,3 +35,5 @@
 	trustExitCode = true
 [pull]
 	rebase = true
+[ghq]
+	root = ~/src
