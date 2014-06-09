@@ -140,6 +140,8 @@ inoremap <expr> ;dt strftime('%H:%M:%S')
 nmap ;df a;df<ESC>
 nmap ;dd a;dd<ESC>
 nmap ;dt a;dt<ESC>
+" insertモード時に C-v でペースト
+inoremap <C-v> <C-r>+
 " 保存時に行末の空白を削除する（ただし Markdown は除外）
 let g:remove_trailing_white_spaces = 1
 function! s:removeTrailingWhiteSpaces()
@@ -149,14 +151,10 @@ function! s:removeTrailingWhiteSpaces()
 endfunction
 autocmd BufWritePre * call s:removeTrailingWhiteSpaces()
 " 行末空白削除の切り替え
-command! -nargs=0 ToggleRemoveTrailingWhiteSpaces
-  \ call s:toggleRemovingTrailingWhiteSpaceStatus()
-function! s:toggleRemovingTrailingWhiteSpaceStatus()
-  let g:remove_trailing_white_spaces =
-    \ !g:remove_trailing_white_spaces
+command! -nargs=0 ToggleRemoveTrailingWhiteSpaces call s:toggleRemoveTrailingWhiteSpaces()
+function! s:toggleRemoveTrailingWhiteSpaces()
+  let g:remove_trailing_white_spaces = !g:remove_trailing_white_spaces
 endfunction
-" insertモード時に C-v でペースト
-inoremap <C-v> <C-r>+
 " }}}
 
 " cursor {{{
