@@ -36,6 +36,7 @@ NeoBundle 'kannokanno/previm'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'kmnk/vim-unite-giti'
 NeoBundle 'mattn/emmet-vim'
+NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'osyo-manga/unite-fold'
 NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'rcmdnk/vim-markdown'
@@ -53,6 +54,7 @@ NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'ujihisa/unite-colorscheme'
 NeoBundle 'ujihisa/unite-rake'
 NeoBundle 'vim-ruby/vim-ruby'
+NeoBundle 'vim-scripts/AnsiEsc.vim'
 NeoBundle 'vim-scripts/sudo.vim'
 " }}}
 
@@ -139,7 +141,20 @@ nmap ;df a;df<ESC>
 nmap ;dd a;dd<ESC>
 nmap ;dt a;dt<ESC>
 " 保存時に行末の空白を削除する（ただし Markdown は除外）
-autocmd BufWritePre * if &filetype !=? 'markdwon' | %s/\s\+$//ge | endif
+let g:remove_trailing_white_spaces = 1
+function! s:removeTrailingWhiteSpaces()
+  if &ft != 'markdown' && g:remove_trailing_white_spaces == 1
+    :%s/\s\+$//ge
+  endif
+endfunction
+autocmd BufWritePre * call s:removeTrailingWhiteSpaces()
+" 行末空白削除の切り替え
+command! -nargs=0 ToggleRemoveTrailingWhiteSpaces
+  \ call s:toggleRemovingTrailingWhiteSpaceStatus()
+function! s:toggleRemovingTrailingWhiteSpaceStatus()
+  let g:remove_trailing_white_spaces =
+    \ !g:remove_trailing_white_spaces
+endfunction
 " insertモード時に C-v でペースト
 inoremap <C-v> <C-r>+
 " }}}
