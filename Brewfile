@@ -42,6 +42,7 @@ install brew-cask
 tap caskroom/versions || true
 
 cask install alfred
+cask install atom
 cask install clamxav
 cask install dropbox
 cask install evernote
