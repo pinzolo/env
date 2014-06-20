@@ -1,7 +1,10 @@
-autoload -U compinit
-compinit
+#for zsh-completions
+fpath=(/usr/local/share/zsh-completions $fpath)
 
-autoload -U colors
+autoload -Uz compinit
+compinit -u
+
+autoload -Uz colors
 colors
 
 function git-current-branch {
@@ -99,6 +102,7 @@ alias berc='bundle exec rails console'
 alias bers='bundle exec rails server'
 alias berg='bundle exec rails generate'
 alias berd='bundle exec rails destroy'
+alias diff='colordiff'
 
 # functions
 # 正規表現による一括置換を行う
@@ -148,15 +152,6 @@ export PATH="$HOME/.rbenv/bin:$PATH"
 # bundler
 export BUNDLER_EDITOR="vim +VimFiler"
 
-# for postgresql on mac OS X
-case "$OSTYPE" in
-  darwin*)
-    export PATH="/usr/local/bin:$PATH"
-    ;;
-  linux*)
-    ;;
-esac
-
 # for homebrew-cask
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
@@ -164,15 +159,15 @@ export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 export GOPATH=$HOME
 export PATH="$HOME/bin:$PATH"
 
-# for percol
-function percol-src() {
-    local selected_dir=$(ghq list --full-path | percol --query "$LBUFFER")
+# for peco
+function peco-src() {
+    local selected_dir=$(ghq list --full-path | peco --query "$LBUFFER")
     if [ -n "$selected_dir" ]; then
         BUFFER="cd ${selected_dir}"
         zle accept-line
     fi
     zle clear-screen
 }
-zle -N percol-src
-bindkey '^S' percol-src
+zle -N peco-src
+bindkey '^S' peco-src
 
