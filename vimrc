@@ -371,6 +371,11 @@ let g:jellybeans_overrides = {
 \}
 " }}}
 
+" vim-indent-guides {{{
+" 起動時にインデント色付けを有効化
+let g:indent_guides_enable_on_vim_startup = 1
+" }}}
+
 " -------------------------------------------------- language settings
 
 " Ruby {{{
