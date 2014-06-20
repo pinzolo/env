@@ -1,6 +1,7 @@
 update
 upgrade
 
+install autoconf
 install bazzar
 install cmake
 install cmigemo
@@ -59,6 +60,7 @@ cask install picasa
 cask install sequel-pro
 cask install skitch
 cask install skype
+cask install sourcetree
 cask install totalfinder
 cask install totalterminal
 cask install virtualbox
