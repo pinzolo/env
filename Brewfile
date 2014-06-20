@@ -44,6 +44,7 @@ tap caskroom/versions || true
 cask install alfred
 cask install atom
 cask install clamxav
+cask install dash
 cask install dropbox
 cask install evernote
 cask install filezilla
