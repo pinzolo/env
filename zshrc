@@ -160,14 +160,17 @@ export GOPATH=$HOME
 export PATH="$HOME/bin:$PATH"
 
 # for peco
-function peco-src() {
-    local selected_dir=$(ghq list --full-path | peco --query "$LBUFFER")
-    if [ -n "$selected_dir" ]; then
-        BUFFER="cd ${selected_dir}"
-        zle accept-line
-    fi
-    zle clear-screen
-}
-zle -N peco-src
-bindkey '^S' peco-src
+function peco-do() { peco | while read LINE; do $@ $LINE; done }
+alias peco-src='ghq list --full-path | peco-do cd'
+alias peco-self='ghq list --full-path pinzolo | peco-do cd'
+#function peco-src() {
+#    local selected_dir=$(ghq list --full-path | peco --query "$LBUFFER")
+#    if [ -n "$selected_dir" ]; then
+#        BUFFER="cd ${selected_dir}"
+#        zle accept-line
+#    fi
+#    zle clear-screen
+#}
+#zle -N peco-src
+#bindkey '^S' peco-src
 
