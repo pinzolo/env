@@ -161,8 +161,11 @@ export PATH="$HOME/bin:$PATH"
 
 # for peco
 function peco-do() { peco | while read LINE; do $@ $LINE; done }
-alias peco-src='ghq list --full-path | peco-do cd'
-alias peco-self='ghq list --full-path pinzolo | peco-do cd'
+function peco-clip() { peco | while read LINE; do echo "$LINE" | pbcopy; done }
+alias pc-src='ghq list --full-path | peco-do cd'
+alias pc-self='ghq list --full-path pinzolo | peco-do cd'
+alias pc-clip-src='ghq list --full-path | peco-clip'
+alias pc-clip-self='ghq list --full-path pinzolo | peco-clip'
 #function peco-src() {
 #    local selected_dir=$(ghq list --full-path | peco --query "$LBUFFER")
 #    if [ -n "$selected_dir" ]; then
