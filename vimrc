@@ -13,7 +13,6 @@ endif
 
 " plugins {{{
 NeoBundle 'Shougo/junkfile.vim'
-NeoBundle 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'Shougo/neosnippet-snippets'
