@@ -82,6 +82,11 @@ NeoBundle '29decibel/codeschool-vim-theme'
 
 " -------------------------------------------------- common settings
 
+" env {{{
+" 開発ディレクトリのルート
+let $src = expand("~/src/github.com/pinzolo")
+" }}}
+
 " base {{{
 syntax on
 filetype plugin indent on
