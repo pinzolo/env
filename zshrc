@@ -103,6 +103,7 @@ alias bers='bundle exec rails server'
 alias berg='bundle exec rails generate'
 alias berd='bundle exec rails destroy'
 alias diff='colordiff'
+alias clip-pwd='pwd | pbcopy'
 
 # functions
 # 正規表現による一括置換を行う
@@ -152,14 +153,14 @@ export PATH="$HOME/.rbenv/bin:$PATH"
 # bundler
 export BUNDLER_EDITOR="vim +VimFiler"
 
-# for homebrew-cask
+# homebrew-cask
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
-# for GO
+# golang
 export GOPATH=$HOME
 export PATH="$HOME/bin:$PATH"
 
-# for peco
+# peco
 function peco-do() { peco | while read LINE; do $@ $LINE; done }
 function peco-clip() { peco | while read LINE; do echo "$LINE" | pbcopy; done }
 alias pc-src='ghq list --full-path | peco-do cd'
