@@ -7,7 +7,8 @@ Pry::DEFAULT_HOOKS.add_hook(:before_session, :gem_auto_require) do |out, target,
     if File.exist?(File.join(lib, "#{gem_name}.rb"))
       begin
         require gem_name
-      rescue LoadError
+      rescue LoadError => e
+        puts e.message
       end
     end
   end
