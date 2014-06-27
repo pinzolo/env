@@ -8,7 +8,7 @@ Pry::DEFAULT_HOOKS.add_hook(:before_session, :gem_auto_require) do |out, target,
       begin
         require gem_name
       rescue LoadError => e
-        puts e.message
+        puts "gem_auto_require: #{e.message}"
       end
     end
   end
