@@ -4,11 +4,6 @@ Pry::DEFAULT_HOOKS.add_hook(:before_session, :gem_auto_require) do |out, target,
   if File.exist?(File.join(dir, "#{gem_name}.gemspec"))
     lib = File.join(dir, 'lib')
     $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-    if File.exist?(File.join(lib, "#{gem_name}.rb"))
-      begin
-        require gem_name
-      rescue LoadError
-      end
-    end
+    require gem_name if File.exist?(File.join(lib, "#{gem_name}.rb"))
   end
 end
