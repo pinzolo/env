@@ -104,7 +104,7 @@ alias bers='bundle exec rails server'
 alias berg='bundle exec rails generate'
 alias berd='bundle exec rails destroy'
 alias diff='colordiff'
-alias clip-pwd='pwd | pbcopy'
+alias clipwd='pwd | pbcopy'
 
 # functions
 # 正規表現による一括置換を行う
