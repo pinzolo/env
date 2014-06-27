@@ -8,7 +8,7 @@ def deletable?(dest, src)
   end
 end
 
-files = %w(bashrc gemrc gitattributes gitconfig gitignore gvimrc railsrc rspec screenrc vimrc zshenv zshrc)
+files = %w(bashrc gemrc gitattributes gitconfig gitignore gvimrc pryrc railsrc rspec screenrc vimrc zshenv zshrc)
 dirs = %w(vim)
 
 home = File.expand_path('~')
