@@ -107,6 +107,7 @@ set formatoptions=lmoq
 set browsedir=buffer
 " 改行時にコメントしない
 autocmd FileType * set formatoptions-=ro
+
 " }}}
 
 " display {{{
@@ -369,10 +370,12 @@ let g:ruby_hl_lvar_hl_group = 'rubyLocalVariable'
 
 " jellybeans {{{
 let g:jellybeans_overrides = {
-\    'rubyLocalVariable': { 'guifg': 'c59f6f', 'guibg': '',
-\              'ctermfg': '', 'ctermbg': 'Yellow',
+\    'rubyLocalVariable': { 'guifg': 'aabbcc', 'guibg': '',
+\              'ctermfg': '44', 'ctermbg': '',
 \              'attr': '' },
 \}
+set t_Co=256
+colorscheme jellybeans
 " }}}
 
 " vim-indent-guides {{{
