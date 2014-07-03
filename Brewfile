@@ -32,6 +32,7 @@ install scala
 install sqlite
 install subversion
 install the_silver_searcher
+install tmux
 install tree
 install wget
 install zsh --disable-etcdir
