@@ -83,6 +83,7 @@ case "$OSTYPE" in
     alias gvim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim -g "$@"'
     alias ctags='/Applications/MacVim.app/Contents/MacOS/ctags "$@"'
     alias eclipse='/Applications/eclipse/eclipse "$@"'
+    alias clipwd='pwd | pbcopy'
     ;;
   linux*)
     alias ls='ls --color=auto'
@@ -96,15 +97,7 @@ alias cd='pushd'
 alias bd='popd'
 alias lv='lv -c'
 alias reload='source ~/.zshrc'
-alias be='bundle exec'
-alias ber='bundle exec rails'
-alias berk='bundle exec rake'
-alias berc='bundle exec rails console'
-alias bers='bundle exec rails server'
-alias berg='bundle exec rails generate'
-alias berd='bundle exec rails destroy'
 alias diff='colordiff'
-alias clipwd='pwd | pbcopy'
 
 # functions
 # 正規表現による一括置換を行う
@@ -153,6 +146,13 @@ export PATH="$HOME/.rbenv/bin:$PATH"
 
 # bundler
 export BUNDLER_EDITOR="vim +VimFiler"
+alias be='bundle exec'
+alias ber='bundle exec rails'
+alias berk='bundle exec rake'
+alias berc='bundle exec rails console'
+alias bers='bundle exec rails server'
+alias berg='bundle exec rails generate'
+alias berd='bundle exec rails destroy'
 
 # homebrew-cask
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
@@ -168,14 +168,35 @@ alias pc-src='ghq list --full-path | peco-do cd'
 alias pc-self='ghq list --full-path pinzolo | peco-do cd'
 alias pc-clip-src='ghq list --full-path | peco-clip'
 alias pc-clip-self='ghq list --full-path pinzolo | peco-clip'
-#function peco-src() {
-#    local selected_dir=$(ghq list --full-path | peco --query "$LBUFFER")
-#    if [ -n "$selected_dir" ]; then
-#        BUFFER="cd ${selected_dir}"
-#        zle accept-line
-#    fi
-#    zle clear-screen
-#}
-#zle -N peco-src
-#bindkey '^S' peco-src
+
+# soruces (using ghq)
+function peco-src() {
+    local selected_dir=$(ghq list --full-path | peco --query "$LBUFFER")
+    if [ -n "$selected_dir" ]; then
+        BUFFER="cd ${selected_dir}"
+        zle accept-line
+    fi
+    zle clear-screen
+}
+zle -N peco-src
+stty -ixon
+bindkey '^s' peco-src
+
+# command history
+function peco-history() {
+  typeset tac
+  if which tac > /dev/null; then
+    tac=tac
+  else
+    tac='tail -r'
+  fi
+  BUFFER=$(fc -l -n 1 | eval $tac | peco --query "$LBUFFER")
+  CURSOR=$#BUFFER
+  zle -R -c
+}
+zle -N peco-history
+bindkey '^r' peco-history
+
+# git branch
+alias -g B='`git branch | peco | sed -e "s/^\*[ ]*//g"`'
 
