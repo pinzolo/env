@@ -54,6 +54,7 @@ setopt pushd_ignore_dups
 setopt correct
 setopt list_packed
 setopt ignoreeof
+setopt no_flow_control
 
 autoload history-search-end
 zle -N history-beginning-search-backward-end history-search-end
@@ -162,24 +163,26 @@ export GOPATH=$HOME
 export PATH="$HOME/bin:$PATH"
 
 # peco
-function peco-do() { peco | while read LINE; do $@ $LINE; done }
-function peco-clip() { peco | while read LINE; do echo "$LINE" | pbcopy; done }
-alias pc-src='ghq list --full-path | peco-do cd'
-alias pc-self='ghq list --full-path pinzolo | peco-do cd'
-alias pc-clip-src='ghq list --full-path | peco-clip'
-alias pc-clip-self='ghq list --full-path pinzolo | peco-clip'
+alias -g B='`git branch | peco | sed -e "s/^\*[ ]*//g"`'
+alias -g S='`ghq list --full-path | peco`'
+alias -g SS='`ghq list --full-path pinzolo | peco`'
+alias -g L='`ls -a | peco`'
+alias -g GL='`git ls-files | peco`'
+alias o='open L'
+alias v='gvim L'
+alias vc='vim L'
+alias l='ls -al | peco'
 
 # soruces (using ghq)
 function peco-src() {
-    local selected_dir=$(ghq list --full-path | peco --query "$LBUFFER")
-    if [ -n "$selected_dir" ]; then
-        BUFFER="cd ${selected_dir}"
-        zle accept-line
-    fi
-    zle clear-screen
+  local selected_dir=$(ghq list --full-path | peco --query "$LBUFFER")
+  if [ -n "$selected_dir" ]; then
+    BUFFER="cd ${selected_dir}"
+    zle accept-line
+  fi
+  zle clear-screen
 }
 zle -N peco-src
-stty -ixon
 bindkey '^s' peco-src
 
 # command history
@@ -197,6 +200,11 @@ function peco-history() {
 zle -N peco-history
 bindkey '^r' peco-history
 
-# git branch
-alias -g B='`git branch | peco | sed -e "s/^\*[ ]*//g"`'
+function plocate() {
+  locate $@ | peco
+}
 
+# FIXME
+function vlocate() {
+  gvim $(plocate $@)
+}
