@@ -37,6 +37,7 @@ install tree
 install wget
 install zsh --disable-etcdir
 install zsh-completions
+install reattach-to-user-namespace
 
 tap caskroom/cask || true
 install brew-cask
@@ -55,6 +56,7 @@ cask install google-chrome
 cask install google-hangouts
 cask install google-japanese-ime
 cask install iterm2
+# TODO: karabiner
 cask install keyremap4macbook
 cask install libreoffice
 cask install opera
