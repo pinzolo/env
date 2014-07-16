@@ -40,6 +40,7 @@ NeoBundle 'osyo-manga/unite-fold'
 NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'rcmdnk/vim-markdown'
 NeoBundle 'scrooloose/syntastic'
+NeoBundle 'sorah/unite-ghq'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'thinca/vim-ref'
 NeoBundle 'todesking/ruby_hl_lvar.vim'
@@ -297,6 +298,8 @@ nnoremap <silent> [unite]o :<C-u>Unite outline<CR>
 nnoremap <silent> [unite]l :<C-u>Unite fold<CR>
 " grep
 nnoremap <silent> [unite]g :<C-u>Unite grep<CR>
+" ghq
+nnoremap <silent> [unite]s :<C-u>Unite ghq<CR>
 
 " unite-rails {{{
 nnoremap [unite-rails] <Nop>
