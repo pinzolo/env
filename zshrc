@@ -99,6 +99,7 @@ alias bd='popd'
 alias lv='lv -c'
 alias reload='source ~/.zshrc'
 alias diff='colordiff'
+alias clip_timestamp='date +"%Y%m%d%I%M%S" | pbcopy'
 
 # functions
 # 正規表現による一括置換を行う
