@@ -56,8 +56,7 @@ cask install google-chrome
 cask install google-hangouts
 cask install google-japanese-ime
 cask install iterm2
-# TODO: karabiner
-cask install keyremap4macbook
+cask install karabiner
 cask install libreoffice
 cask install opera
 cask install pgadmin3
