@@ -7,7 +7,6 @@ install cmake
 install cmigemo
 install colordiff
 install cvs
-install darcs
 install fontforge
 install git
 install git-flow
