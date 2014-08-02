@@ -164,11 +164,12 @@ export GOPATH=$HOME
 export PATH="$HOME/bin:$PATH"
 
 # peco
-alias -g B='`git branch | peco | sed -e "s/^\*[ ]*//g"`'
+alias -g GB='`git branch | peco | sed -e "s/^\*[ ]*//g"`'
+alias -g GL='`git ls-files | peco`'
+alias -g GS='`git status --short | peco | awk '\''{print $2}'\''`'
 alias -g S='`ghq list --full-path | peco`'
 alias -g SS='`ghq list --full-path pinzolo | peco`'
 alias -g L='`ls -a | peco`'
-alias -g GL='`git ls-files | peco`'
 alias o='open L'
 alias v='gvim L'
 alias vc='vim L'
