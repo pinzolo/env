@@ -83,8 +83,7 @@ NeoBundle '29decibel/codeschool-vim-theme'
 " -------------------------------------------------- common settings
 
 " env {{{
-" 開発ディレクトリのルート
-let $src = expand("~/src/github.com/pinzolo")
+let $PATH = expand("~/bin") . ":" . $PATH
 " }}}
 
 " base {{{
