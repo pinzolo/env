@@ -43,7 +43,7 @@ NeoBundle 'scrooloose/syntastic'
 NeoBundle 'sorah/unite-ghq'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'thinca/vim-ref'
-NeoBundle 'todesking/ruby_hl_lvar.vim'
+" NeoBundle 'todesking/ruby_hl_lvar.vim'
 NeoBundle 'tomtom/tcomment_vim'
 NeoBundle 'tpope/vim-endwise'
 NeoBundle 'tpope/vim-fugitive'
@@ -225,8 +225,10 @@ let Grep_Skip_Files='*.bak *~ *.swp *.log *.class'
 " }}}
 
 " backup {{{
-set backupdir=~/.vim/temp
-set directory=~/.vim/temp
+set noswapfile
+set nobackup
+"set backupdir=~/.vim/temp
+"set directory=~/.vim/temp
 set undodir=~/.vim/temp
 " }}}
 
