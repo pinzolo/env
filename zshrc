@@ -172,8 +172,8 @@ alias -g S='`ghq list --full-path | peco`'
 alias -g SS='`ghq list --full-path pinzolo | peco`'
 alias -g L='`ls -a | peco`'
 alias o='open L'
-alias v='gvim L'
-alias vc='vim L'
+alias gv='gvim L'
+alias v='vim L'
 alias l='ls -al | peco'
 
 # soruces (using ghq)
