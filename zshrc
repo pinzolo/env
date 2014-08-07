@@ -167,6 +167,7 @@ export PATH="$HOME/bin:$PATH"
 alias -g GB='`git branch | peco | sed -e "s/^\*[ ]*//g"`'
 alias -g GL='`git ls-files | peco`'
 alias -g GS='`git status --short | peco | awk '\''{print $2}'\''`'
+alias -g GH='`git log --oneline | peco | awk '\''{print $1}'\''`'
 alias -g S='`ghq list --full-path | peco`'
 alias -g SS='`ghq list --full-path pinzolo | peco`'
 alias -g L='`ls -a | peco`'
