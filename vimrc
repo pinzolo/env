@@ -27,6 +27,7 @@ NeoBundle 'Shougo/vimproc.vim', {
   \ },
 \ }
 NeoBundle 'Shougo/vimshell.vim'
+NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'basyura/unite-rails'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'edsono/vim-matchit'
