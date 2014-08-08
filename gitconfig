@@ -10,6 +10,7 @@
 [color]
 	ui = auto
 [alias]
+	add = add --verbose
 	co = checkout
 	cm = commit
 	st = status --branch --short
