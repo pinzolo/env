@@ -164,13 +164,13 @@ export GOPATH=$HOME
 export PATH="$HOME/bin:$PATH"
 
 # peco
-alias -g GB='`git branch | peco | sed -e "s/^\*[ ]*//g"`'
-alias -g GL='`git ls-files | peco`'
-alias -g GS='`git status --short | peco | awk '\''{print $2}'\''`'
-alias -g GH='`git log --oneline | peco | awk '\''{print $1}'\''`'
-alias -g S='`ghq list --full-path | peco`'
-alias -g SS='`ghq list --full-path pinzolo | peco`'
-alias -g LS='`ls -a | peco`'
+alias -g GB='`git branch | peco --prompt "GIT BRANCH>" | sed -e "s/^\*[ ]*//g"`'
+alias -g GL='`git ls-files | peco --prompt "GIT FILES>"`'
+alias -g GS='`git status --short | peco --prompt "GIT STATUS>" | awk '\''{print $2}'\''`'
+alias -g GH='`git log --oneline | peco --prompt "GIT LOG>" | awk '\''{print $1}'\''`'
+alias -g S='`ghq list --full-path | peco --prompt "SOURCE>" `'
+alias -g SS='`ghq list --full-path pinzolo --prompt "SOURCE>" | peco`'
+alias -g LS='`ls -a | peco --prompt "LS-A>" `'
 alias o='open LS'
 alias gv='gvim LS'
 alias v='vim LS'
@@ -209,5 +209,5 @@ function plocate() {
 
 # FIXME
 function vlocate() {
-  gvim $(plocate $@)
+  gvim $(plocate $@) < /dev/tty
 }
