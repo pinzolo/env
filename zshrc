@@ -171,9 +171,9 @@ alias -g GH='`git log --oneline | peco | awk '\''{print $1}'\''`'
 alias -g S='`ghq list --full-path | peco`'
 alias -g SS='`ghq list --full-path pinzolo | peco`'
 alias -g LS='`ls -a | peco`'
-alias o='open L'
-alias gv='gvim L'
-alias v='vim L'
+alias o='open LS'
+alias gv='gvim LS'
+alias v='vim LS'
 alias l='ls -al | peco'
 
 # soruces (using ghq)
