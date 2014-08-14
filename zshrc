@@ -175,6 +175,7 @@ alias o='open LS'
 alias gv='gvim LS'
 alias v='vim LS'
 alias l='ls -al | peco'
+alias proutes='cat .routes | peco --prompt "RAILS ROUTES>" | awk '\''{print $1}'\'' | pbcopy'
 
 # soruces (using ghq)
 function peco-src() {
