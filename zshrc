@@ -155,13 +155,10 @@ alias berc='bundle exec rails console'
 alias bers='bundle exec rails server'
 alias berg='bundle exec rails generate'
 alias berd='bundle exec rails destroy'
+alias berdb='bundle exec rails dbconsole'
 
 # homebrew-cask
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
-
-# golang
-export GOPATH=$HOME
-export PATH="$HOME/bin:$PATH"
 
 # peco
 alias -g GB='`git branch | peco --prompt "GIT BRANCH>" | sed -e "s/^\*[ ]*//g"`'
@@ -175,7 +172,7 @@ alias o='open LS'
 alias gv='gvim LS'
 alias v='vim LS'
 alias l='ls -al | peco'
-alias proutes='cat .routes | peco --prompt "RAILS ROUTES>" | awk '\''{print $1}'\'' | pbcopy'
+alias proutes='cat .routes | peco --prompt "RAILS ROUTES>" | awk '\''{print $1}'\'' | tr -d '\''\n'\'' | pbcopy'
 
 # soruces (using ghq)
 function peco-src() {
