@@ -44,6 +44,7 @@ NeoBundle 'scrooloose/syntastic'
 NeoBundle 'sorah/unite-ghq'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'thinca/vim-ref'
+NeoBundle 'thoughtbot/vim-rspec'
 " NeoBundle 'todesking/ruby_hl_lvar.vim'
 NeoBundle 'tomtom/tcomment_vim'
 NeoBundle 'tpope/vim-endwise'
@@ -285,46 +286,46 @@ let g:unite_winwidth = 120
 nnoremap [unite] <Nop>
 nmap ;; [unite]
 " バッファ
-nnoremap <silent> [unite]b :<C-u>Unite buffer<CR>
+nnoremap <silent> [unite]b :<C-u>Unite buffer -start-insert<CR>
 " ファイル
-nnoremap <silent> [unite]f :<C-u>Unite -buffer-name=files file<CR>
+nnoremap <silent> [unite]f :<C-u>Unite file -buffer-name=files -start-insert<CR>
 " ファイル(再帰)
-nnoremap <silent> [unite]r :<C-u>Unite -buffer-name=files file_rec<CR>
+nnoremap <silent> [unite]r :<C-u>Unite file_rec -buffer-name=files -start-insert<CR>
 " 現在開いているファイルと同じディレクトリから選択
-nnoremap <silent> [unite]c :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
+nnoremap <silent> [unite]c :<C-u>UniteWithBufferDir file -buffer-name=files -start-insert<CR>
 " 最近使用したファイルから選択
-nnoremap <silent> [unite]m :<C-u>Unite buffer file_mru<CR>
+nnoremap <silent> [unite]m :<C-u>Unite buffer file_mru -start-insert<CR>
 " アウトラインから選択
-nnoremap <silent> [unite]o :<C-u>Unite outline<CR>
+nnoremap <silent> [unite]o :<C-u>Unite outline -start-insert<CR>
 " 折りたたみから選択
-nnoremap <silent> [unite]l :<C-u>Unite fold<CR>
+nnoremap <silent> [unite]l :<C-u>Unite fold -start-insert<CR>
 " grep
-nnoremap <silent> [unite]g :<C-u>Unite grep<CR>
+nnoremap <silent> [unite]g :<C-u>Unite grep -start-insert<CR>
 " ghq
-nnoremap <silent> [unite]s :<C-u>Unite ghq<CR>
+nnoremap <silent> [unite]s :<C-u>Unite ghq -start-insert<CR>
 
 " unite-rails {{{
 nnoremap [unite-rails] <Nop>
 nmap ;r [unite-rails]
 " model 選択
-nnoremap <silent> [unite-rails]m :<C-u>Unite rails/model<CR>
+nnoremap <silent> [unite-rails]m :<C-u>Unite rails/model -start-insert<CR>
 " controller 選択
-nnoremap <silent> [unite-rails]c :<C-u>Unite rails/controller<CR>
+nnoremap <silent> [unite-rails]c :<C-u>Unite rails/controller -start-insert<CR>
 " view 選択
-nnoremap <silent> [unite-rails]v :<C-u>Unite rails/view<CR>
+nnoremap <silent> [unite-rails]v :<C-u>Unite rails/view -start-insert<CR>
 " helper 選択
-nnoremap <silent> [unite-rails]h :<C-u>Unite rails/helper<CR>
+nnoremap <silent> [unite-rails]h :<C-u>Unite rails/helper -start-insert<CR>
 " db 選択
-nnoremap <silent> [unite-rails]d :<C-u>Unite rails/db<CR>
+nnoremap <silent> [unite-rails]d :<C-u>Unite rails/db -start-insert<CR>
 " }}}
 
 " unite-giti {{{
 nnoremap [unite-giti] <Nop>
 nmap ;g [unite-giti]
-nnoremap <silent> [unite-giti]b :<C-u>Unite giti/branch<CR>
-nnoremap <silent> [unite-giti]s :<C-u>Unite giti/status<CR>
-nnoremap <silent> [unite-giti]r :<C-u>Unite giti/remote<CR>
-nnoremap <silent> [unite-giti]l :<C-u>Unite giti/log<CR>
+nnoremap <silent> [unite-giti]b :<C-u>Unite giti/branch -start-insert<CR>
+nnoremap <silent> [unite-giti]s :<C-u>Unite giti/status -start-insert<CR>
+nnoremap <silent> [unite-giti]r :<C-u>Unite giti/remote -start-insert<CR>
+nnoremap <silent> [unite-giti]l :<C-u>Unite giti/log -start-insert<CR>
 " }}}
 " }}}
 
