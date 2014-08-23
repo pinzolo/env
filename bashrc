@@ -97,3 +97,6 @@ alias ls='ls --color=auto'
 alias ll='ls -al --color=auto'
 alias ps='as axu'
 alias mkdir='mkdir -p'
+
+# added by travis gem
+[ -f /Users/pinzolo/.travis/travis.sh ] && source /Users/pinzolo/.travis/travis.sh

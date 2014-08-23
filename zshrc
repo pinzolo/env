@@ -160,6 +160,10 @@ alias berdb='bundle exec rails dbconsole'
 # homebrew-cask
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
+# golang
+export GOPATH=$HOME
+export PATH="$HOME/bin:$PATH"
+
 # peco
 alias -g GB='`git branch | peco --prompt "GIT BRANCH>" | sed -e "s/^\*[ ]*//g"`'
 alias -g GL='`git ls-files | peco --prompt "GIT FILES>"`'
@@ -209,3 +213,6 @@ function plocate() {
 function vlocate() {
   gvim $(plocate $@) < /dev/tty
 }
+
+# added by travis gem
+[ -f /Users/pinzolo/.travis/travis.sh ] && source /Users/pinzolo/.travis/travis.sh
