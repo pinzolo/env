@@ -99,7 +99,7 @@ alias bd='popd'
 alias lv='lv -c'
 alias reload='source ~/.zshrc'
 alias diff='colordiff'
-alias clip_timestamp='date +"%Y%m%d%I%M%S" | pbcopy'
+alias clip_timestamp='date +"%Y%m%d%I%M%S" | tr -d '\''\n'\'' | pbcopy'
 
 # functions
 # 正規表現による一括置換を行う
@@ -142,6 +142,8 @@ function regrep() {
 function ff() {
   find . -name $1 -type f
 }
+
+export EDITOR=vim
 
 # rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
