@@ -3,6 +3,7 @@ upgrade
 
 install autoconf
 install bazzar
+install ccze
 install cmake
 install cmigemo
 install colordiff
