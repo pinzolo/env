@@ -159,6 +159,9 @@ alias berg='bundle exec rails generate'
 alias berd='bundle exec rails destroy'
 alias berdb='bundle exec rails dbconsole'
 
+# Java
+export JAVA_HOME=`/usr/libexec/java_home -v1.7`
+
 # homebrew-cask
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
