@@ -8,8 +8,11 @@ filetype off
 
 if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle.vim
-  call neobundle#rc(expand('~/.vim/bundle'))
 endif
+
+call neobundle#begin(expand('~/.vim/bundle'))
+
+NeoBundleFetch 'Shougo/neobundle.vim'
 
 " plugins {{{
 NeoBundle 'Shougo/junkfile.vim'
@@ -82,6 +85,9 @@ NeoBundle '29decibel/codeschool-vim-theme'
 "NeoBundle 'vim-scripts/rdark'
 "NeoBundle 'mrkn/mrkn256.vim'
 " }}}
+
+call neobundle#end()
+
 " }}}
 
 " -------------------------------------------------- common settings
