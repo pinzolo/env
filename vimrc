@@ -193,6 +193,8 @@ inoremap <%%> <% %><LEFT><LEFT><LEFT>
 " ページ移動時のカーソルをページ中央に
 nnoremap <C-f> <C-f>zz
 nnoremap <C-b> <C-b>zz
+" 行末までのヤンク
+nnoremap Y y$
 " }}}
 
 " buffer {{{
