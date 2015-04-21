@@ -348,7 +348,7 @@ imap <C-y><C-y> <C-y>,
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
 let g:airline_theme = 'dark'
-let g:airline_branch_empty_message = "[!git]"
+let g:airline#extensions#branch#empty_message = "[!git]"
 " }}}
 
 " quickrun {{{
