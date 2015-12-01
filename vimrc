@@ -30,7 +30,7 @@ NeoBundle 'Shougo/vimproc.vim', {
   \ },
 \ }
 NeoBundle 'Shougo/vimshell.vim'
-NeoBundle 'airblade/vim-gitgutter'
+" NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'basyura/unite-rails'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'edsono/vim-matchit'
@@ -57,6 +57,8 @@ NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-haml'
 NeoBundle 'tpope/vim-rails'
 NeoBundle 'tpope/vim-surround'
+NeoBundle 'tpope/vim-abolish'
+NeoBundle 'tpope/vim-repeat'
 NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'ujihisa/unite-colorscheme'
 NeoBundle 'ujihisa/unite-rake'
@@ -285,7 +287,13 @@ endif
 " }}}
 
 " neosnippet {{{
-imap <C-f> <Plug>(neosnippet_expand_or_jump)
+imap <expr><CR> neosnippet#expandable() <bar><bar> neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<CR>"
+imap <expr><TAB> neosnippet#jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)"
+\: pumvisible() ? "\<C-n>" : "\<TAB>"
+smap <expr><TAB> neosnippet#jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)"
+\: "\<TAB>"
 " }}}
 
 " unite.vim {{{
