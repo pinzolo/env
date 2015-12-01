@@ -1,1 +1,1 @@
--T -d sqlite3 --skip-bundle
+-d sqlite3 --skip-bundle
