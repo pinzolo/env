@@ -160,7 +160,8 @@ alias berd='bundle exec rails destroy'
 alias berdb='bundle exec rails dbconsole'
 
 # Java
-export JAVA_HOME=`/usr/libexec/java_home -v1.7`
+export JAVA_HOME=`/usr/libexec/java_home -v1.8`
+export PATH="$HOME/.embulk/bin:$PATH"
 
 # homebrew-cask
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
@@ -171,9 +172,9 @@ export PATH="$HOME/bin:$PATH"
 
 # peco
 alias -g GB='`git branch | peco --prompt "GIT BRANCH>" | sed -e "s/^\*[ ]*//g"`'
-alias -g GL='`git ls-files | peco --prompt "GIT FILES>"`'
+alias -g GF='`git ls-files | peco --prompt "GIT FILES>"`'
 alias -g GS='`git status --short | peco --prompt "GIT STATUS>" | awk '\''{print $2}'\''`'
-alias -g GH='`git log --oneline | peco --prompt "GIT LOG>" | awk '\''{print $1}'\''`'
+alias -g GL='`git log --oneline | peco --prompt "GIT LOG>" | awk '\''{print $1}'\''`'
 alias -g S='`ghq list --full-path | peco --prompt "SOURCE>" `'
 alias -g SS='`ghq list --full-path pinzolo --prompt "SOURCE>" | peco`'
 alias -g LS='`ls -a | peco --prompt "LS-A>" `'
