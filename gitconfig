@@ -39,3 +39,5 @@
 	rebase = true
 [ghq]
 	root = ~/src
+[rebase]
+	autosquash = true
