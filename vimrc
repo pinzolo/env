@@ -52,7 +52,7 @@ NeoBundle 'thinca/vim-ref'
 NeoBundle 'thoughtbot/vim-rspec'
 " NeoBundle 'todesking/ruby_hl_lvar.vim'
 NeoBundle 'tomtom/tcomment_vim'
-NeoBundle 'tpope/vim-endwise'
+" NeoBundle 'tpope/vim-endwise'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-haml'
 NeoBundle 'tpope/vim-rails'
@@ -159,10 +159,10 @@ nmap ;dd a;dd<ESC>
 nmap ;dt a;dt<ESC>
 " insertモード時に C-v でペースト
 inoremap <C-v> <C-r>+
-" 保存時に行末の空白を削除する（ただし Markdown は除外）
+" 保存時に行末の空白を削除する（ただし Markdown と yaml は除外）
 let g:remove_trailing_white_spaces = 1
 function! s:removeTrailingWhiteSpaces()
-  if &ft != 'markdown' && g:remove_trailing_white_spaces == 1
+  if &ft != 'markdown' && &ft != 'yaml' && g:remove_trailing_white_spaces == 1
     :%s/\s\+$//ge
   endif
 endfunction
@@ -362,7 +362,16 @@ let g:airline#extensions#branch#empty_message = "[!git]"
 " quickrun {{{
 let g:quickrun_config = {}
 let g:quickrun_config._ = {'runner' : 'vimproc'}
-let g:quickrun_config['ruby.rspec'] = { 'command': 'rspec', 'cmdopt': 'bundle exec', 'exec': '%o %c %s' }
+let g:quickrun_config['ruby/rspec'] = { 'type': 'ruby/rspec', 'exec': 'bundle exec rspec %s' }
+let g:quickrun_config['ruby/test'] = { 'type': 'ruby/test', 'exec': 'bundle exec rake test TEST=%s' }
+function! RSpecQuickrun()
+  let b:quickrun_config = {'type' : 'rubye/rspec'}
+endfunction
+autocmd BufReadPost *_spec.rb call RSpecQuickrun()
+function! RubyTestQuickrun()
+  let b:quickrun_config = {'type' : 'ruby/test'}
+endfunction
+autocmd BufReadPost *_test.rb call RubyTestQuickrun()
 " }}}
 
 " vimshell {{{
@@ -454,7 +463,7 @@ endfunction
 " }}}
 
 " Java {{{
-autocmd FileType java setlocal ts=4 sts=4 sw=4
+autocmd FileType java setlocal ts=2 sts=2 sw=2
 au BufNewFile,BufRead *.ftl setlocal ft=jsp
 " }}}
 
