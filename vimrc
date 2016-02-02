@@ -38,6 +38,7 @@ NeoBundle 'groenewege/vim-less'
 NeoBundle 'kannokanno/previm'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'kmnk/vim-unite-giti'
+NeoBundle 'LeafCage/yankround'
 NeoBundle 'mattn/emmet-vim'
 " NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'osyo-manga/unite-fold'
@@ -69,6 +70,7 @@ NeoBundle 'vim-scripts/sudo.vim'
 
 " colorschemes {{{
 NeoBundle 'nanotech/jellybeans.vim'
+NeoBundle 'chriskempson/vim-tomorrow-theme'
 NeoBundle 'jpo/vim-railscasts-theme'
 NeoBundle 'w0ng/vim-hybrid'
 NeoBundle '29decibel/codeschool-vim-theme'
@@ -111,8 +113,8 @@ set history=1024
 set vb t_vb=
 " システムのクリップボードを使用する
 set clipboard+=unnamed
-" ヤンクした場合、システムのクリップボードに入れる
-set clipboard=unnamed
+" ヤンクした場合、システムのクリップボードに入れる（重複な気がする）
+"set clipboard=unnamed
 " テキスト整形オプションにマルチバイト系を追加
 set formatoptions=lmoq
 " Exploreの初期ディレクトリをバッファに
@@ -159,6 +161,8 @@ nmap ;dd a;dd<ESC>
 nmap ;dt a;dt<ESC>
 " insertモード時に C-v でペースト
 inoremap <C-v> <C-r>+
+" Y で行末までヤンク
+nnoremap Y y$
 " 保存時に行末の空白を削除する（ただし Markdown と yaml は除外）
 let g:remove_trailing_white_spaces = 1
 function! s:removeTrailingWhiteSpaces()
@@ -195,8 +199,6 @@ inoremap <%%> <% %><LEFT><LEFT><LEFT>
 " ページ移動時のカーソルをページ中央に
 nnoremap <C-f> <C-f>zz
 nnoremap <C-b> <C-b>zz
-" 行末までのヤンク
-nnoremap Y y$
 " }}}
 
 " buffer {{{
@@ -253,13 +255,21 @@ set foldenable
 set foldmethod=marker
 " }}}
 
+" vimdiff {{{
+if &diff
+map <leader>1 :diffget LOCAL<CR>
+map <leader>2 :diffget BASE<CR>
+map <leader>3 :diffget REMOTE<CR>
+endif
+"}}}
+
 " -------------------------------------------------- plugin settings
 
 " neocomplete {{{
 " vim起動時に有効にする
 let g:neocomplete#enable_at_startup=1
 " 補完が自動で開始される文字数
-let g:neocomplete#auto_completion_start_length=3
+let g:neocomplete#auto_completion_start_length=4
 " smarrt case有効化。 大文字が入力されるまで大文字小文字の区別を無視する
 let g:neocomplete#enable_smart_case=1
 " シンタックスをキャッシュするときの最小文字長を3に
@@ -321,6 +331,8 @@ nnoremap <silent> [unite]l :<C-u>Unite fold<CR>
 nnoremap <silent> [unite]g :<C-u>Unite grep<CR>
 " ghq
 nnoremap <silent> [unite]s :<C-u>Unite ghq -start-insert<CR>
+" yankround
+nnoremap <silent> [unite]y :<C-u>Unite yankround<CR>
 
 " unite-rails {{{
 nnoremap [unite-rails] <Nop>
@@ -357,6 +369,8 @@ let g:airline_left_sep = ''
 let g:airline_right_sep = ''
 let g:airline_theme = 'dark'
 let g:airline#extensions#branch#empty_message = "[!git]"
+set laststatus=2
+set cmdheight=3
 " }}}
 
 " quickrun {{{
@@ -380,6 +394,7 @@ let g:vimshell_prompt_pattern = '^\f\+ % '
 "let g:vimshell_split_command = "split"
 nnoremap [vimshell] <Nop>
 nmap ;s [vimshell]
+nnoremap <silent> [vimshell]p :<C-u>VimShellPop<CR>
 nnoremap <silent> [vimshell]s :<C-u>VimShell<CR>
 nnoremap <silent> [vimshell]r :<C-u>VimShellInteractive irb<CR>
 " }}}
@@ -420,46 +435,15 @@ let g:indent_guides_enable_on_vim_startup = 1
 
 " Ruby {{{
 autocmd FileType ruby,eruby setlocal omnifunc=rubycomplete#Complete
-let g:rubycomplete_rails = 0
-let g:rubycomplete_buffer_loading = 1
-let g:rubycomplete_classes_in_global = 1
-let g:rubycomplete_include_object = 1
-let g:rubycomplete_include_object_space = 1
-let g:neocomplete#sources#omni#input_patterns.ruby='[^. *\t]\.\w*\|\h\w*::'
+" let g:rubycomplete_rails = 0
+" let g:rubycomplete_buffer_loading = 1
+" let g:rubycomplete_classes_in_global = 1
+" let g:rubycomplete_include_object = 1
+" let g:rubycomplete_include_object_space = 1
+"let g:neocomplete#sources#omni#input_patterns.ruby='[^. *\t]\.\w*\|\h\w*::'
 
 autocmd FileType ruby,haml,eruby,sass,cucumber,mason setlocal ts=2 sts=2 sw=2 nowrap
-augroup RSpec
-  autocmd!
-  autocmd BufWinEnter,BufNewFile *_spec.rb set filetype=ruby.rspec
-augroup END
 
-" RubyではRsenseを使用した補完を行う
-"let g:rsenseHome='/usr/local/Cellar/rsense/0.3/libexec'
-"let g:rsenseUseOmniFunc=1
-"let g:neocomplcache_omni_functions.ruby='RSenseCompleteFunction'
-
-" マジックコメント自動追加関数
-function! s:AddMagicComment()
-  let pos = getpos('.')
-  let line_index = 1
-  let magic_comment = '# coding: utf-8'
-  if &filetype == 'ruby'
-    let line = getline(line_index)
-    if line[0:1] == '#!'
-      let line_index = 2
-    endif
-  endif
-  let line = getline(line_index)
-  if line =~ 'coding:'
-    return
-  endif
-  call cursor(line_index, 0)
-  execute ':normal O' . magic_comment
-  call setpos('.', pos)
-  execute ':normal j'
-endfunction
-" 暫定解除（しばらく様子見る）
-"autocmd BufWritePre *.rb call s:AddMagicComment()
 " }}}
 
 " Java {{{
