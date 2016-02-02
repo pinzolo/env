@@ -34,7 +34,7 @@ function git-current-branch {
 
 # enable escape sequence (\e = )
 setopt prompt_subst
-PROMPT=$'%{${fg[cyan]}%}%n@%m%{\e[m%}`git-current-branch` %{${fg[cyan]}%}%% '
+PROMPT=$'%{${fg[cyan]}%}%n@%m%{$reset_color%}`git-current-branch` %{${fg[cyan]}%}%%%{$reset_color%} '
 # for server
 #PROMPT=$'%{\e[33m%}%n@%M %%%{\e[m%} '
 # for root
@@ -155,7 +155,7 @@ alias be='bundle exec'
 alias ber='bundle exec rails'
 alias berk='bundle exec rake'
 alias berc='bundle exec rails console'
-alias bers='bundle exec rails server'
+alias bers='bundle exec rails server -b 0.0.0.0'
 alias berg='bundle exec rails generate'
 alias berd='bundle exec rails destroy'
 alias berdb='bundle exec rails dbconsole'
