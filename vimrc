@@ -509,3 +509,6 @@ command! -nargs=0 ClipPath call s:Clip(expand('%:p'))
 command! -nargs=0 ClipFile call s:Clip(expand('%:t'))
 " 現在開いているファイルのディレクトリパスをレジスタへ
 command! -nargs=0 ClipDir  call s:Clip(expand('%:p:h'))
+" UpでもUPでも保存する
+command! -nargs=0 Up execute 'update'
+command! -nargs=0 UP execute 'update'
