@@ -14,16 +14,16 @@ set cmdheight=3
 if has("win32")
   set guifont=Migu_1M:h9:cSHIFTJIS
 elseif has("mac")
-  set guifont=Ricty:h12
+  set guifont=MyricaM\ Monospace:h12
 else
-  set guifont=Ricty\ 10
+  set guifont=MyricaM\ Monospace\ 10
 endif
 
 " 印刷用フォント
 if has("win32")
   set printfont=Migu_1M:h9:cSHIFTJIS
 elseif has("mac")
-  set printfont=Ricty:h12
+  set printfont=MyricaM\ Monospace:h12
 else
-  set printfont=Ricty\ 10
+  set printfont=MyricaM\ Monospace\ 10
 endif
