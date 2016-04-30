@@ -162,7 +162,8 @@ alias berdb='bundle exec rails dbconsole'
 
 # Java
 export JAVA_HOME=`/usr/libexec/java_home -v1.8`
-export PATH="$HOME/.embulk/bin:$PATH"
+export ANT_HOME="/usr/local/bin/ant"
+export PATH="$ANT_HOME/bin:$HOME/.embulk/bin:$PATH"
 
 # homebrew-cask
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
