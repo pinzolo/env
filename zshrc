@@ -147,7 +147,7 @@ function ff() {
 export EDITOR=vim
 
 # rbenv
-export PATH="$HOME/.rbenv/bin:$PATH"
+export PATH="$HOME/.rbenv/shims:$PATH"
 
 # bundler
 export BUNDLER_EDITOR="vim +VimFiler"
