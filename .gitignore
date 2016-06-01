@@ -1,6 +1,8 @@
-vim/bundle/*
+vim/plugged/*
+vim/autoload/
 vim/plugin/
 vim/temp/*
-!vim/bundle/.gitkeep
+!vim/autoload/.gitkeep
+!vim/plugged/.gitkeep
 !vim/temp/.gitkeep
 .netrwhist

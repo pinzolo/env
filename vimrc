@@ -3,97 +3,48 @@
 set nocompatible
 autocmd!
 
-" NeoBundle {{{
-filetype off
+" vim-plug {{{
+call plug#begin('~/.vim/plugged')
 
-if has('vim_starting')
-  set runtimepath+=~/.vim/bundle/neobundle.vim
-endif
+Plug 'Shougo/junkfile.vim'
+Plug 'Shougo/neocomplete.vim'
+Plug 'Shougo/neomru.vim'
+Plug 'Shougo/neosnippet-snippets'
+Plug 'Shougo/neosnippet.vim'
+Plug 'Shougo/unite-outline'
+Plug 'Shougo/unite.vim'
+Plug 'Shougo/vimfiler.vim'
+Plug 'Shougo/vimproc.vim', { 'do': 'make' }
+Plug 'basyura/unite-rails'
+Plug 'bling/vim-airline'
+Plug 'edsono/vim-matchit'
+Plug 'fatih/vim-go'
+Plug 'gregsexton/matchtag'
+Plug 'h1mesuke/vim-alignta'
+Plug 'kannokanno/previm'
+Plug 'kchmck/vim-coffee-script'
+Plug 'mattn/emmet-vim'
+Plug 'nanotech/jellybeans.vim'
+Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
+Plug 'osyo-manga/unite-fold'
+Plug 'pangloss/vim-javascript'
+Plug 'rcmdnk/vim-markdown'
+Plug 'rcmdnk/vim-markdown-quote-syntax'
+Plug 'scrooloose/syntastic'
+Plug 'sorah/unite-ghq'
+Plug 'thinca/vim-quickrun'
+Plug 'thinca/vim-ref'
+Plug 'thoughtbot/vim-rspec'
+Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
+Plug 'tyru/open-browser.vim'
+Plug 'vim-ruby/vim-ruby'
+Plug 'vim-scripts/AnsiEsc.vim'
 
-call neobundle#begin(expand('~/.vim/bundle'))
-
-NeoBundleFetch 'Shougo/neobundle.vim'
-
-" plugins {{{
-NeoBundle 'Shougo/junkfile.vim'
-NeoBundle 'Shougo/neocomplete.vim'
-NeoBundle 'Shougo/neomru.vim'
-NeoBundle 'Shougo/neosnippet-snippets'
-NeoBundle 'Shougo/neosnippet.vim'
-NeoBundle 'Shougo/unite-outline'
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/vimfiler.vim'
-NeoBundle 'Shougo/vimproc.vim', {
-  \ 'build' : {
-    \ 'mac'  : 'make -f make_mac.mak',
-    \ 'unix' : 'make -f make_unix.mak'
-  \ },
-\ }
-NeoBundle 'Shougo/vimshell.vim'
-" NeoBundle 'airblade/vim-gitgutter'
-NeoBundle 'basyura/unite-rails'
-NeoBundle 'bling/vim-airline'
-NeoBundle 'edsono/vim-matchit'
-NeoBundle 'fatih/vim-go'
-NeoBundle 'groenewege/vim-less'
-NeoBundle 'h1mesuke/vim-alignta'
-NeoBundle 'kannokanno/previm'
-NeoBundle 'kchmck/vim-coffee-script'
-NeoBundle 'kmnk/vim-unite-giti'
-NeoBundle 'LeafCage/yankround'
-NeoBundle 'mattn/emmet-vim'
-" NeoBundle 'nathanaelkane/vim-indent-guides'
-NeoBundle 'osyo-manga/unite-fold'
-NeoBundle 'pangloss/vim-javascript'
-NeoBundle 'godlygeek/tabular'
-NeoBundle 'rcmdnk/vim-markdown-quote-syntax'
-NeoBundle 'rcmdnk/vim-markdown'
-NeoBundle 'scrooloose/syntastic'
-NeoBundle 'sorah/unite-ghq'
-NeoBundle 'thinca/vim-quickrun'
-NeoBundle 'thinca/vim-ref'
-NeoBundle 'thoughtbot/vim-rspec'
-" NeoBundle 'todesking/ruby_hl_lvar.vim'
-NeoBundle 'tomtom/tcomment_vim'
-" NeoBundle 'tpope/vim-endwise'
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'tpope/vim-haml'
-NeoBundle 'tpope/vim-rails'
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'tpope/vim-abolish'
-NeoBundle 'tpope/vim-repeat'
-NeoBundle 'tyru/open-browser.vim'
-NeoBundle 'ujihisa/unite-colorscheme'
-NeoBundle 'ujihisa/unite-rake'
-NeoBundle 'vim-ruby/vim-ruby'
-NeoBundle 'vim-scripts/AnsiEsc.vim'
-NeoBundle 'vim-scripts/sudo.vim'
-" }}}
-
-" colorschemes {{{
-NeoBundle 'nanotech/jellybeans.vim'
-NeoBundle 'chriskempson/vim-tomorrow-theme'
-NeoBundle 'jpo/vim-railscasts-theme'
-NeoBundle 'w0ng/vim-hybrid'
-NeoBundle '29decibel/codeschool-vim-theme'
-"NeoBundle 'altercation/vim-colors-solarized'
-"NeoBundle 'croaker/mustang-vim'
-"NeoBundle 'jeffreyiacono/vim-colors-wombat'
-"NeoBundle 'vim-scripts/Lucius'
-"NeoBundle 'vim-scripts/Zenburn'
-"NeoBundle 'therubymug/vim-pyte'
-"NeoBundle 'tomasr/molokai'
-"NeoBundle 'endel/vim-github-colorscheme'
-"NeoBundle 'baskerville/bubblegum'
-"NeoBundle 'mitsuhiko/fruity-vim-colorscheme'
-"NeoBundle 'vim-scripts/phd'
-"NeoBundle 'vim-scripts/twilight'
-"NeoBundle 'vim-scripts/rdark'
-"NeoBundle 'mrkn/mrkn256.vim'
-" }}}
-
-call neobundle#end()
-
+call plug#end()
 " }}}
 
 " -------------------------------------------------- common settings
@@ -483,6 +434,10 @@ autocmd FileType html,xhtml setlocal ts=2 sts=2 sw=2 omnifunc=htmlcomplete#Compl
 
 " XML {{{
 autocmd FileType xml setlocal ts=2 sts=2 sw=2 omnifunc=xmlcomplete#CompleteTags
+" }}}
+
+" golang {{{
+let $GOPATH = expand("~")
 " }}}
 
 " -------------------------------------------------- functions
