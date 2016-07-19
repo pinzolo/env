@@ -101,6 +101,7 @@ alias lv='lv -c'
 alias reload='source ~/.zshrc'
 alias diff='colordiff'
 alias clip_timestamp='date +"%Y%m%d%I%M%S" | tr -d '\''\n'\'' | pbcopy'
+alias tbr='tablarian'
 
 # functions
 # 正規表現による一括置換を行う
@@ -169,8 +170,8 @@ export PATH="$ANT_HOME/bin:$HOME/.embulk/bin:$PATH"
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
 # golang
-export GOPATH=$HOME
-export PATH="$HOME/bin:$PATH"
+export GOPATH="$HOME/develop/golang"
+export PATH="$GOPATH/bin:$PATH"
 
 # peco
 alias -g GB='`git branch | peco --prompt "GIT BRANCH>" | sed -e "s/^\*[ ]*//g"`'

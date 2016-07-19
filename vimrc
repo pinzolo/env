@@ -25,12 +25,12 @@ Plug 'kannokanno/previm'
 Plug 'kchmck/vim-coffee-script'
 Plug 'mattn/emmet-vim'
 Plug 'nanotech/jellybeans.vim'
-Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
 Plug 'osyo-manga/unite-fold'
 Plug 'pangloss/vim-javascript'
 Plug 'rcmdnk/vim-markdown'
 Plug 'rcmdnk/vim-markdown-quote-syntax'
 Plug 'scrooloose/syntastic'
+Plug 'slim-template/vim-slim'
 Plug 'sorah/unite-ghq'
 Plug 'thinca/vim-quickrun'
 Plug 'thinca/vim-ref'
@@ -437,7 +437,17 @@ autocmd FileType xml setlocal ts=2 sts=2 sw=2 omnifunc=xmlcomplete#CompleteTags
 " }}}
 
 " golang {{{
-let $GOPATH = expand("~")
+let $GOPATH = expand("~/develop/golang")
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_types = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
+let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
+let g:go_fmt_command = "goimports"
+let g:go_list_type = "quickfix"
 " }}}
 
 " -------------------------------------------------- functions
