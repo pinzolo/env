@@ -101,7 +101,17 @@ alias lv='lv -c'
 alias reload='source ~/.zshrc'
 alias diff='colordiff'
 alias clip_timestamp='date +"%Y%m%d%I%M%S" | tr -d '\''\n'\'' | pbcopy'
+
+# tablarian
 alias tbr='tablarian'
+alias tbrs='tblararian show'
+
+function tbrf() {
+  local tbl=$(tablarian index $@ | peco --prompt "TABLES>")
+  if [ -n "$tbl" ]; then
+    tablarian show $@ $tbl
+  fi
+}
 
 # functions
 # 正規表現による一括置換を行う
