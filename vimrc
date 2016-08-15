@@ -17,6 +17,7 @@ Plug 'Shougo/vimfiler.vim'
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'basyura/unite-rails'
 Plug 'bling/vim-airline'
+Plug 'chriskempson/vim-tomorrow-theme'
 Plug 'edsono/vim-matchit'
 Plug 'fatih/vim-go'
 Plug 'gregsexton/matchtag'
@@ -43,6 +44,7 @@ Plug 'tpope/vim-surround'
 Plug 'tyru/open-browser.vim'
 Plug 'vim-ruby/vim-ruby'
 Plug 'vim-scripts/AnsiEsc.vim'
+Plug 'w0ng/vim-hybrid'
 
 call plug#end()
 " }}}
@@ -369,13 +371,14 @@ let g:vim_markdown_folding_disabled=1
 let g:ruby_hl_lvar_hl_group = 'rubyLocalVariable'
 " }}}
 
-" jellybeans {{{
+" colorscheme {{{
 let g:jellybeans_overrides = {
 \    'rubyLocalVariable': { 'guifg': 'aabbcc', 'guibg': '',
 \              'ctermfg': '44', 'ctermbg': '',
 \              'attr': '' },
 \}
 set t_Co=256
+set background dark
 colorscheme jellybeans
 " }}}
 
@@ -437,17 +440,28 @@ autocmd FileType xml setlocal ts=2 sts=2 sw=2 omnifunc=xmlcomplete#CompleteTags
 " }}}
 
 " golang {{{
+" Go はハードタブ。4スペースの方が見やすい
+autocmd FileType go setl noexpandtab tabstop=4 shiftwidth=4
+autocmd FileType go :highlight goErr guifg=#ffd700 ctermfg=214
+autocmd FileType go :match goErr /\<err\>/
 let $GOPATH = expand("~/develop/golang")
+let $PATH = expand("$GOPATH/bin") . ":" . $PATH
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_fields = 1
 let g:go_highlight_types = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
-let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
-let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
+let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': [] }
+let g:syntastic_go_checkers = [ 'go', 'golint', 'govet']
 let g:go_fmt_command = "goimports"
 let g:go_list_type = "quickfix"
+
+au FileType go nmap <Leader>t <Plug>(go-test)
+au FileType go nmap <Leader>i <Plug>(go-info)
+au FileType go nmap <Leader>d <Plug>(go-def)
+au FileType go nmap <Leader>v <Plug>(go-def-vertical)
+au FileType go nmap <Leader>n <Plug>(go-rename)
 " }}}
 
 " -------------------------------------------------- functions

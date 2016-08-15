@@ -104,12 +104,19 @@ alias clip_timestamp='date +"%Y%m%d%I%M%S" | tr -d '\''\n'\'' | pbcopy'
 
 # tablarian
 alias tbr='tablarian'
-alias tbrs='tblararian show'
+alias tbrs='tablarian show --pretty'
 
 function tbrf() {
-  local tbl=$(tablarian index $@ | peco --prompt "TABLES>")
+  local tbl=$(tablarian index $@ | peco --prompt "TABLES>" | awk '{print $1}')
   if [ -n "$tbl" ]; then
-    tablarian show $@ $tbl
+    tablarian show --pretty $@ $tbl
+  fi
+}
+
+function tbrfa() {
+  local tbl=$(tablarian index $@ | peco --prompt "TABLES>" | awk '{print $1}')
+  if [ -n "$tbl" ]; then
+    tablarian show --pretty --all $@ $tbl
   fi
 }
 

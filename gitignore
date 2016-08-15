@@ -9,3 +9,4 @@
 Thumbs.db
 Gemfile.local
 tablarian.config
+.settings/*
