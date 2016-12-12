@@ -18,7 +18,7 @@ Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'basyura/unite-rails'
 Plug 'bling/vim-airline'
 Plug 'chriskempson/vim-tomorrow-theme'
-Plug 'edsono/vim-matchit'
+Plug 'adelarsq/vim-matchit'
 Plug 'fatih/vim-go'
 Plug 'gregsexton/matchtag'
 Plug 'h1mesuke/vim-alignta'
@@ -45,6 +45,8 @@ Plug 'tyru/open-browser.vim'
 Plug 'vim-ruby/vim-ruby'
 Plug 'vim-scripts/AnsiEsc.vim'
 Plug 'w0ng/vim-hybrid'
+Plug 'aereal/vim-colors-japanesque'
+Plug 'cocopon/iceberg.vim'
 
 call plug#end()
 " }}}
@@ -378,7 +380,6 @@ let g:jellybeans_overrides = {
 \              'attr': '' },
 \}
 set t_Co=256
-set background dark
 colorscheme jellybeans
 " }}}
 
