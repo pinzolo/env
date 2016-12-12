@@ -8,5 +8,5 @@
 .bundle
 Thumbs.db
 Gemfile.local
-tablarian.config
+.tablarian.config
 .settings/*
