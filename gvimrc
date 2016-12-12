@@ -1,6 +1,7 @@
 set lines=64
 set columns=224
 
+set background dark
 colorscheme jellybeans
 
 " ツールバーの削除
