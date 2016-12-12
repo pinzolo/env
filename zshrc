@@ -194,7 +194,8 @@ export PATH="$GOPATH/bin:$PATH"
 alias -g GB='`git branch | peco --prompt "GIT BRANCH>" | sed -e "s/^\*[ ]*//g"`'
 alias -g GF='`git ls-files | peco --prompt "GIT FILES>"`'
 alias -g GS='`git status --short | peco --prompt "GIT STATUS>" | awk '\''{print $2}'\''`'
-alias -g GL='`git log --oneline | peco --prompt "GIT LOG>" | awk '\''{print $1}'\''`'
+
+alias -g GL='`git log --pretty=format:'\''%h - %s %ad <%an>%d'\'' --date=short | peco --prompt "GIT LOG>" | awk '\''{print $1}'\''`'
 alias -g S='`ghq list --full-path | peco --prompt "SOURCE>" `'
 alias -g SS='`ghq list --full-path pinzolo --prompt "SOURCE>" | peco`'
 alias -g LS='`ls -a | peco --prompt "LS-A>" `'
