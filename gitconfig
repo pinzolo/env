@@ -17,9 +17,9 @@
 	br = branch
 	brr = branch --remote
 	bra = branch --all
-	lo = log --pretty=format:'%Cred%h%Creset - %s %Cgreen%ad %Cblue<%an>%C(yellow)%d%Creset' --date=short
-	ll = log --pretty=format:'%Cred%h%Creset - %s %Cgreen%ad %Cblue<%an>%C(yellow)%d%Creset' --date=short --decorate --numstat
-	lg = log --pretty=format:'%Cred%h%Creset - %s %Cgreen%ad %Cblue<%an>%C(yellow)%d%Creset' --date=short --abbrev-commit --graph # log graph
+	lo = log --pretty=format:'%C(yellow)%h%Creset - %s %C(47)%ad %C(39)<%an>%Creset%C(09)%d%Creset' --date=short
+	ll = log --pretty=format:'%C(yellow)%h%Creset - %s %C(47)%ad %C(39)<%an>%Creset%C(09)%d%Creset' --date=short --decorate --numstat
+	lg = log --pretty=format:'%C(yellow)%h%Creset - %s %C(47)%ad %C(39)<%an>%Creset%C(09)%d%Creset' --date=short --abbrev-commit --graph # log graph
 	mr = merge
 	gr = grep --line-number --show-function --color --heading --break
 	rb = rebase
