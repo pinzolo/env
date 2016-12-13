@@ -19,27 +19,28 @@ function git-current-branch {
   fi
   st=`git status 2> /dev/null`
   if [[ -n `echo "$st" | grep "^nothing to"` ]]; then
-    color=${fg[green]}
+    color='46'
   elif [[ -n `echo "$st" | grep "^nothing added"` ]]; then
-    color=${fg[yellow]}
+    color='226'
   elif [[ -n `echo "$st" | grep "^# Untracked"` ]]; then
-    color=${fg_bold[red]}
+    color='09'
   else
-    color=${fg[red]}
+    color='196'
   fi
 
   # %{...%} は囲まれた文字列がエスケープシーケンスであることを明示する
-  echo " [%{$color%}$name%{$reset_color%}]"
+  echo " %F{243}[%{$reset_color%}%F{$color}$name%{$reset_color%}%F{243}]%{$reset_color%}"
 }
 
 # enable escape sequence (\e = )
 setopt prompt_subst
-PROMPT=$'%{${fg[cyan]}%}%n@%m%{$reset_color%}`git-current-branch` %{${fg[cyan]}%}%%%{$reset_color%} '
+PROMPT=$'%F{45}%n%{$reset_color%}%F{243}@%{$reset_color%}%F{104}%m%{$reset_color%}`git-current-branch` %F{243}%%%{$reset_color%} '
+#PROMPT=$'%{${fg[cyan]}%}%n@%m%{$reset_color%}`git-current-branch` %{${fg[cyan]}%}%%%{$reset_color%} '
 # for server
 #PROMPT=$'%{\e[33m%}%n@%M %%%{\e[m%} '
 # for root
 #PROMPT=$'%{\e[31m%}%n@%M %#%{\e[m%} '
-RPROMPT=$'%{${fg[green]}%}[%/]%{\e[m%}'
+RPROMPT=$'%F{243}%/%{$reset_color%}'
 PROMPT2="%_%% "
 SPROMPT="%r is correct? [n,y,a,e]: "
 
