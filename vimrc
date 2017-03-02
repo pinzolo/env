@@ -47,6 +47,7 @@ Plug 'vim-scripts/AnsiEsc.vim'
 Plug 'w0ng/vim-hybrid'
 Plug 'aereal/vim-colors-japanesque'
 Plug 'cocopon/iceberg.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 
 call plug#end()
 " }}}

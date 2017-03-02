@@ -165,6 +165,8 @@ function ff() {
 
 export EDITOR=vim
 
+export PATH="/usr/local/sbin:$PATH"
+
 # rbenv
 export PATH="$HOME/.rbenv/shims:$PATH"
 
@@ -182,7 +184,8 @@ alias berdb='bundle exec rails dbconsole'
 # Java
 export JAVA_HOME=`/usr/libexec/java_home -v1.8`
 export ANT_HOME="/usr/local/bin/ant"
-export PATH="$ANT_HOME/bin:$HOME/.embulk/bin:$PATH"
+export M3_HOME=/usr/local/maven/apache-maven-3.3.9
+export PATH="$ANT_HOME/bin:$HOME/.embulk/bin:$M3_HOME/bin:$PATH"
 
 # homebrew-cask
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
