@@ -1,2 +1,10 @@
 # show commit hash in main veiw
 set main-view = id date author commit-title:graph=yes,refs=yes
+
+# External key binds
+bind main <Ctrl-r> ?!git rebase -i %(commit)
+bind diff <Ctrl-r> ?!git rebase -i %(commit)
+bind main <Ctrl-f> ?!git commit --fixup %(commit)
+bind diff <Ctrl-f> ?!git commit --fixup %(commit)
+bind branch n !git checkout -b %(prompt) %(branch)
+
