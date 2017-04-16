@@ -38,7 +38,7 @@
 [pull]
 	rebase = true
 [ghq]
-	root = ~/develop
+	root = ~/dev
 [rebase]
 	autosquash = true
 	autostash = true
@@ -47,6 +47,8 @@
 	compactionHeuristic = true
 [difftool]
 	prompt = false
+[difftool "icdiff"]
+	cmd = /usr/local/bin/icdiff --line-numbers $LOCAL $REMOTE
 [mergetool]
 	prompt = false
 [url "git@github.com:"]

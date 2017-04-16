@@ -81,9 +81,8 @@ case "$OSTYPE" in
   darwin*)
     alias ls='ls -G'
     alias ll='ls -al -G'
-    alias vi='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim -u $HOME/.vimrc "$@"'
-    alias vim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim "$@"'
-    alias gvim='env LANG=ja_JP.UTF-8 /Applications/MacVim.app/Contents/MacOS/Vim -g "$@"'
+    alias vi='nvim'
+    alias vim='nvim'
     alias ctags='/Applications/MacVim.app/Contents/MacOS/ctags "$@"'
     alias eclipse='/Applications/eclipse/eclipse "$@"'
     alias clipwd='pwd | pbcopy'
@@ -168,7 +167,13 @@ export EDITOR=vim
 export PATH="/usr/local/sbin:$PATH"
 
 # rbenv
-export PATH="$HOME/.rbenv/shims:$PATH"
+export PATH="$HOME/.anyenv/envs/rbenv/shims:$PATH"
+# pyenv
+export PATH="$HOME/.anyenv/envs/pyenv/shims:$PATH"
+# ndenv
+export PATH="$HOME/.anyenv/envs/ndenv/shims:$PATH"
+# jenv
+export PATH="$HOME/.anyenv/envs/jenv/shims:$PATH"
 
 # bundler
 export BUNDLER_EDITOR="vim +VimFiler"
@@ -191,7 +196,7 @@ export PATH="$ANT_HOME/bin:$HOME/.embulk/bin:$M3_HOME/bin:$PATH"
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
 # golang
-export GOPATH="$HOME/develop/golang"
+export GOPATH="$HOME/dev/go"
 export PATH="$GOPATH/bin:$PATH"
 
 # peco
