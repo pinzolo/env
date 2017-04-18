@@ -10,6 +10,7 @@ end
 
 files = %w(bashrc gemrc gitattributes gitconfig gitignore gvimrc pryrc railsrc rspec screenrc tigrc tmux.conf vimrc zshenv zshrc)
 dirs = %w(vim)
+config_dirs = %w(peco nvim)
 
 home = File.expand_path('~')
 base = File.expand_path(File.dirname(__FILE__))
@@ -32,6 +33,21 @@ end
 dirs.each do |dir|
   src = "#{base}/#{dir}"
   dest = "#{home}/.#{dir}"
+  if deletable?(dest, src)
+    File.delete(dest)
+    puts "deleted #{dest}"
+  end
+  if File.exists?(dest)
+    puts "#{dest} is valid"
+  else
+    File.symlink("#{src}", "#{dest}")
+    puts "created #{dest} -> #{src}"
+  end
+end
+
+config_dirs.each do |dir|
+  src = "#{base}/#{dir}"
+  dest = "#{home}/.config/#{dir}"
   if deletable?(dest, src)
     File.delete(dest)
     puts "deleted #{dest}"
