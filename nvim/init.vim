@@ -8,6 +8,7 @@ filetype plugin indent on
 syntax enable
 
 source ~/.config/nvim/base.vim
+source ~/.config/nvim/terminal.vim
 source ~/.config/nvim/theme.vim
 source ~/.config/nvim/plugins.vim
 source ~/.config/nvim/languages.vim
