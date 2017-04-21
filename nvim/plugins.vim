@@ -20,3 +20,16 @@ let g:deoplete#enable_at_startup = 1
 let g:neoterm_position = 'vertical'
 let g:neoterm_automap_keys = ';tt'
 "}}}
+
+" ctrlp {{{
+" キャッシュディレクトリ
+let g:ctrlp_cahce_dir = '~/.cache/ctrlp'
+" キャッシュを終了時にクリアしない
+let g:ctrlp_clear_cache_on_exit = 0
+" 遅延再描画
+let g:ctrlp_lazy_update = 1
+let g:ctrlp_working_path_mode = 'ra'
+" 新規ファイルは current window に表示
+let g:ctrlp_open_new_file = 'r'
+let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:20'
+"}}}

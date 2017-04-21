@@ -3,9 +3,9 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'Shougo/denite.nvim'
 Plug 'bling/vim-airline'
 Plug 'cohama/lexima.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'fatih/vim-go', { 'for': ['go'] }
 Plug 'h1mesuke/vim-alignta'
-Plug 'kien/ctrlp.vim'
 Plug 'mattn/emmet-vim'
 Plug 'nanotech/jellybeans.vim'
 Plug 'scrooloose/syntastic'
