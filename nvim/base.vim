@@ -122,6 +122,7 @@ set nobackup
 " swap ファイル保存先
 set directory=~/.local/share/nvim/swap
 " undo ファイル保存先
+set undofile
 set undodir=~/.local/share/nvim/undo
 
 " フォールディングを可能にする
