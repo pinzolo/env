@@ -1,6 +1,6 @@
 call plug#begin('~/.local/share/nvim/plugged')
 
-Plug 'Shougo/deoplete.nvim'
+Plug 'Shougo/denite.nvim'
 Plug 'bling/vim-airline'
 Plug 'cohama/lexima.vim'
 Plug 'fatih/vim-go', { 'for': ['go'] }
@@ -15,5 +15,6 @@ Plug 'tpope/vim-rails'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'zchee/deoplete-go', { 'for': ['go'] }
+Plug 'kassio/neoterm'
 
 call plug#end()

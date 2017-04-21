@@ -17,7 +17,7 @@ autocmd FileType go :highlight goErr guifg=#ffd700 ctermfg=214
 autocmd FileType go :match goErr /\<err\>/
 let $GOPATH = expand("~/dev/go")
 let $PATH = expand("$GOPATH/bin") . ":" . $PATH
-" 未インポーも保管可能にする
+" 未インポートも補完可能にする
 let g:go_gocode_unimported_packages = 1
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1

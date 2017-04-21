@@ -79,10 +79,6 @@ nnoremap Y y$
 nnoremap <C-f> <C-f>zz
 nnoremap <C-b> <C-b>zz
 
-" バッファ移動
-nnoremap <silent> <SPACE><SPACE> :<C-u>bn<CR>
-nnoremap <silent> <BS><BS> :<C-u>bp<CR>
-
 " タブの代わりに空白を挿入する
 set expandtab
 

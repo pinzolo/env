@@ -12,3 +12,11 @@ set laststatus=2
 set cmdheight=3
 " }}}
 
+" deoplete {{{
+let g:deoplete#enable_at_startup = 1
+" }}}
+
+" neoterm {{{
+let g:neoterm_position = 'vertical'
+let g:neoterm_automap_keys = ';tt'
+"}}}
