@@ -137,4 +137,3 @@ if &diff
   map <leader>3 :diffget REMOTE<CR>
 endif
 
-

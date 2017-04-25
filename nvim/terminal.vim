@@ -1,1 +1,1 @@
-tnoremap <silent> <ESC> <C-\><C-n>
+tnoremap <silent> <C-\><C-\> <C-\><C-n>
