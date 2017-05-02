@@ -13,10 +13,8 @@ autocmd FileType xml setlocal ts=2 sts=2 sw=2 omnifunc=xmlcomplete#CompleteTags
 " golang {{{
 " Go はハードタブ。4スペースの方が見やすい
 autocmd FileType go setl noexpandtab tabstop=4 shiftwidth=4
-autocmd FileType go :highlight goErr guifg=#ffd700 ctermfg=214
+autocmd FileType go :highlight goErr guifg=#ffd700 ctermfg=196
 autocmd FileType go :match goErr /\<err\>/
-autocmd FileType go call denite#custom#var('outline', 'command', ['gotags'])
-autocmd FileType go call denite#custom#var('outline', 'options', ['-f'])
 
 let $GOPATH = expand("~/dev/go")
 let $PATH = expand("$GOPATH/bin") . ":" . $PATH
