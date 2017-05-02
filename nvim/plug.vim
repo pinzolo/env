@@ -1,9 +1,12 @@
 call plug#begin('~/.local/share/nvim/plugged')
 
-Plug 'Shougo/denite.nvim'
+Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'Shougo/neomru.vim'
 Plug 'bling/vim-airline'
 Plug 'cohama/lexima.vim'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'editorconfig/editorconfig-vim'
 Plug 'fatih/vim-go', { 'for': ['go'] }
 Plug 'h1mesuke/vim-alignta'
 Plug 'mattn/emmet-vim'

@@ -83,8 +83,6 @@ case "$OSTYPE" in
     alias ll='ls -al -G'
     alias vi='nvim'
     alias vim='nvim'
-    alias ctags='/Applications/MacVim.app/Contents/MacOS/ctags "$@"'
-    alias eclipse='/Applications/eclipse/eclipse "$@"'
     alias clipwd='pwd | pbcopy'
     ;;
   linux*)

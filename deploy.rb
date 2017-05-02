@@ -8,7 +8,7 @@ def deletable?(dest, src)
   end
 end
 
-files = %w(bashrc gemrc gitattributes gitconfig gitignore gvimrc pryrc railsrc rspec screenrc tigrc tmux.conf vimrc zshenv zshrc)
+files = %w(bashrc ctags gemrc gitattributes gitconfig gitignore gvimrc pryrc railsrc rspec screenrc tigrc tmux.conf vimrc zshenv zshrc)
 dirs = %w(vim)
 config_dirs = %w(peco nvim)
 
