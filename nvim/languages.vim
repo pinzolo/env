@@ -16,8 +16,13 @@ autocmd FileType go setl noexpandtab tabstop=4 shiftwidth=4
 autocmd FileType go :highlight goErr guifg=#ffd700 ctermfg=196
 autocmd FileType go :match goErr /\<err\>/
 
+" Go では ctags の代わりに gotags を使用する
+autocmd FileType go call denite#custom#var('outline', 'command', ['gotags'])
+autocmd FileType go call denite#custom#var('outline', 'file_opt', '-f')
+
 let $GOPATH = expand("~/dev/go")
 let $PATH = expand("$GOPATH/bin") . ":" . $PATH
+
 " 未インポートも補完可能にする
 let g:go_gocode_unimported_packages = 1
 let g:go_highlight_functions = 1
