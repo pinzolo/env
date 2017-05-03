@@ -13,4 +13,4 @@ source ~/.config/nvim/theme.vim
 source ~/.config/nvim/plugins.vim
 source ~/.config/nvim/languages.vim
 source ~/.config/nvim/functions.vim
-
+source ~/.config/nvim/print.vim
