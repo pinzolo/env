@@ -1,12 +1,3 @@
-" エンコーディングをUTF-8に
-set encoding=utf-8
-
-" 新規作成時のエンコード
-set fileencoding=utf-8
-
-"その他のエンコード
-set fileencodings=utf-8,cp932,euc-jp,shift_jis
-
 " ファイル内容が変更されると自動的に読み込む
 set autoread
 
