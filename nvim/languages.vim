@@ -35,9 +35,10 @@ let g:syntastic_go_checkers = [ 'go', 'golint', 'govet']
 let g:go_fmt_command = "goimports"
 let g:go_list_type = "quickfix"
 
-au FileType go nmap <Leader>t <Plug>(go-test)
-au FileType go nmap <Leader>i <Plug>(go-info)
-au FileType go nmap <Leader>d <Plug>(go-def)
-au FileType go nmap <Leader>v <Plug>(go-def-vertical)
-au FileType go nmap <Leader>n <Plug>(go-rename)
+autocmd FileType go nmap <Leader>t <Plug>(go-test)
+autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
+autocmd FileType go nmap <Leader>i <Plug>(go-info)
+autocmd FileType go nmap <Leader>d <Plug>(go-def)
+autocmd FileType go nmap <Leader>v <Plug>(go-def-vertical)
+autocmd FileType go nmap <Leader>n <Plug>(go-rename)
 " }}}

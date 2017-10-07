@@ -97,12 +97,15 @@ alias cd='pushd'
 alias bd='popd'
 alias lv='lv -c'
 alias reload='source ~/.zshrc'
-alias diff='colordiff'
 alias clip_timestamp='date +"%Y%m%d%I%M%S" | tr -d '\''\n'\'' | pbcopy'
 
 # tablarian
 alias tbr='tablarian'
 alias tbrs='tablarian show --pretty'
+
+# homebrew
+# http://qiita.com/takc923/items/45386905f70fde9af0e7
+alias brew="env PATH=${PATH/\/Users\/pinzolo\/\.anyenv\/envs\/pyenv\/shims:/} brew"
 
 function tbrf() {
   local tbl=$(tablarian index $@ | peco --prompt "TABLES>" | awk '{print $1}')
@@ -159,6 +162,10 @@ function regrep() {
 function ff() {
   find . -name $1 -type f
 }
+
+export XDG_CONFIG_HOME=$HOME/.config # 設定ファイル置き場
+export XDG_CACHE_HOME=$HOME/.cache # キャッシュとか重要でないデータ置き場
+export XDG_DATA_HOME=$HOME/.local/share # データ置き場
 
 export EDITOR=vim
 
