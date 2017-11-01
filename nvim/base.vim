@@ -29,6 +29,11 @@ set showmatch
 set list
 set listchars=tab:»-,trail:-,extends:»,precedes:«,nbsp:%
 
+" 日本語文字化け対応
+" see: https://hori-ryota.com/blog/neovim-fix-input-broken-ttimeout/
+set ttimeout
+set ttimeoutlen=50
+
 " カーソル行をハイライト表示する
 set cursorline
 
