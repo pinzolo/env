@@ -29,13 +29,14 @@ function git-current-branch {
   fi
 
   # %{...%} は囲まれた文字列がエスケープシーケンスであることを明示する
-  echo " %F{243}[%{$reset_color%}%F{$color}$name%{$reset_color%}%F{243}]%{$reset_color%}"
+  echo " %F{243}[%F{$color}$name%F{243}]"
 }
 
 # enable escape sequence (\e = )
 setopt prompt_subst
-PROMPT=$'%F{45}%n%{$reset_color%}%F{243}@%{$reset_color%}%F{104}%m%{$reset_color%}`git-current-branch` %F{243}%%%{$reset_color%} '
-#PROMPT=$'%{${fg[cyan]}%}%n@%m%{$reset_color%}`git-current-branch` %{${fg[cyan]}%}%%%{$reset_color%} '
+PREVOK="%F{46}%%"
+PREVOUT="%F{196}%%"
+PROMPT=$'%F{45}%n%F{243}@%F{104}%m`git-current-branch` %(?,${PREVOK},${PREVOUT})%F{255} '
 # for server
 #PROMPT=$'%{\e[33m%}%n@%M %%%{\e[m%} '
 # for root
