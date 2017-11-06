@@ -34,7 +34,7 @@ function git-current-branch {
 
 # enable escape sequence (\e = )
 setopt prompt_subst
-PREVOK="%F{46}%%"
+PREVOK="%F{243}%%"
 PREVOUT="%F{196}%%"
 PROMPT=$'%F{45}%n%F{243}@%F{104}%m`git-current-branch` %(?,${PREVOK},${PREVOUT})%F{255} '
 # for server
