@@ -8,9 +8,9 @@ def deletable?(dest, src)
   end
 end
 
-files = %w(bashrc ctags gemrc gitattributes gitconfig gitignore gvimrc pryrc railsrc rspec screenrc tigrc tmux.conf vimrc zshenv zshrc)
+files = %w(bashrc ctags gemrc gvimrc pryrc railsrc rspec screenrc tigrc tmux.conf vimrc zshenv zshrc)
 dirs = %w(vim)
-config_dirs = %w(peco nvim)
+config_dirs = %w(git peco nvim)
 
 home = File.expand_path('~')
 base = File.expand_path(File.dirname(__FILE__))

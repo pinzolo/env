@@ -4,9 +4,9 @@
 [core]
 	quotepath = false
   editor = nvim
-	excludesfile = /Users/pinzolo/.gitignore
+	excludesfile = /Users/pinzolo/.config/git/ignore
 	precomposeunicode = true
-	attributesfile = /Users/pinzolo/.gitattributes
+	attributesfile = /Users/pinzolo/.config/git/attributes
 [color]
 	ui = auto
 [alias]
