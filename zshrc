@@ -48,7 +48,12 @@ SPROMPT="%r is correct? [n,y,a,e]: "
 HISTFILE=~/.zsh_history
 HISTSIZE=1000000
 SAVEHIST=1000000
-setopt hist_ignore_dups
+setopt hist_ignore_space
+setopt hist_verify
+setopt hist_reduce_blanks  
+setopt hist_save_no_dups
+setopt hist_no_store
+setopt hist_expand
 setopt share_history
 setopt auto_cd
 setopt auto_pushd
@@ -81,14 +86,14 @@ function chpwd() { ls }
 case "$OSTYPE" in
   darwin*)
     alias ls='ls -G'
-    alias ll='ls -al -G'
+    alias ll='ls -ahl -G'
     alias vi='nvim'
     alias vim='nvim'
     alias clipwd='pwd | pbcopy'
     ;;
   linux*)
     alias ls='ls --color=auto'
-    alias ll='ls -al --color=auto'
+    alias ll='ls -ahl --color=auto'
     ;;
 esac
 alias ps='ps axu'
@@ -99,6 +104,8 @@ alias bd='popd'
 alias lv='lv -c'
 alias reload='source ~/.zshrc'
 alias clip_timestamp='date +"%Y%m%d%I%M%S" | tr -d '\''\n'\'' | pbcopy'
+alias fig='docker-compose'
+alias diff='colordiff -u'
 
 # tablarian
 alias tbr='tablarian'
@@ -240,7 +247,7 @@ function peco-history() {
   else
     tac='tail -r'
   fi
-  BUFFER=$(fc -l -n 1 | eval $tac | peco --query "$LBUFFER")
+  BUFFER=$(fc -l -n 1 | eval $tac | awk '!a[$0]++' | peco --query "$LBUFFER")
   CURSOR=$#BUFFER
   zle -R -c
 }
