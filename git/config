@@ -13,6 +13,7 @@
 	ad = add --verbose
 	co = checkout
 	cm = commit
+  cb = checkout -b
 	st = status --branch --short
 	br = branch
 	brr = branch --remote

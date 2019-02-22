@@ -8,4 +8,7 @@ if [ -d ${HOME}/.anyenv ] ; then
         export PATH="$HOME/.anyenv/envs/$D/shims:$PATH"
     done
 
- fi
+fi
+
+eval "$(direnv hook zsh)"
+
