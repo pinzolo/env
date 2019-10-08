@@ -211,6 +211,7 @@ export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 # golang
 export GOPATH="$HOME/dev/go"
 export PATH="$GOPATH/bin:$PATH"
+export GO111MODULE=on
 
 # peco
 alias -g GB='`git branch | peco --prompt "GIT BRANCH>" | sed -e "s/^\*[ ]*//g"`'

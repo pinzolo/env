@@ -7,7 +7,6 @@
 **/vendor/bundle
 .bundle
 Thumbs.db
-Gemfile.local
 .tablarian.config
 .settings/*
 private_ci.sh

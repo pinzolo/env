@@ -16,7 +16,6 @@ Plug 'tpope/vim-rails'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'zchee/deoplete-go', { 'for': ['go'] }
-Plug 'kassio/neoterm'
 Plug 'w0rp/ale'
 
 call plug#end()
