@@ -39,7 +39,7 @@
 [pull]
 	rebase = true
 [ghq]
-	root = ~/dev
+	root = ~/Repos
 [rebase]
 	autosquash = true
 	autostash = true
