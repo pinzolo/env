@@ -8,7 +8,7 @@ def deletable?(dest, src)
   end
 end
 
-files = %w(bashrc ideavimrc masqconfig tigrc tmux.conf zshenv zshrc)
+files = %w(bashrc ideavimrc masqconfig tigrc tmux.conf zprofile zshenv zshrc)
 dirs = %w(vim)
 config_dirs = %w(git peco nvim)
 
