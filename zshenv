@@ -1,4 +1,4 @@
-export PATH="/usr/local/bin:$PATH"
+export PATH="/opt/homebrew/bin:/usr/local/bin:$PATH"
 export CC=cc
 if [ -d ${HOME}/.anyenv ] ; then
     export PATH="$HOME/.anyenv/bin:$PATH"
@@ -11,4 +11,3 @@ if [ -d ${HOME}/.anyenv ] ; then
 fi
 
 eval "$(direnv hook zsh)"
-
