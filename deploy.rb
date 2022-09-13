@@ -10,7 +10,7 @@ end
 
 files = %w(bashrc ideavimrc masqconfig tigrc tmux.conf zprofile zshenv zshrc)
 dirs = %w(vim)
-config_dirs = %w(git peco nvim)
+config_dirs = %w(git peco)
 
 home = File.expand_path('~')
 base = File.expand_path(File.dirname(__FILE__))

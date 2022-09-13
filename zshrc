@@ -110,17 +110,19 @@ export XDG_CACHE_HOME=$HOME/.cache # キャッシュとか重要でないデー�
 export XDG_DATA_HOME=$HOME/.local/share # データ置き場
 
 export EDITOR=vim
+export CC=cc
 
-export PATH="/usr/local/sbin:$PATH"
+# PATH
+export PATH="/opt/homebrew/bin:/usr/local/bin:$PATH"
+if [ -d ${HOME}/.anyenv ] ; then
+    export PATH="$HOME/.anyenv/bin:$PATH"
+    eval "$(anyenv init -)"
+    for D in `ls $HOME/.anyenv/envs`
+    do
+        export PATH="$HOME/.anyenv/envs/$D/shims:$PATH"
+    done
+fi
 
-# rbenv
-export PATH="$HOME/.anyenv/envs/rbenv/shims:$PATH"
-# pyenv
-export PATH="$HOME/.anyenv/envs/pyenv/shims:$PATH"
-# ndenv
-export PATH="$HOME/.anyenv/envs/ndenv/shims:$PATH"
-# jenv
-export PATH="$HOME/.anyenv/envs/jenv/shims:$PATH"
 
 # peco
 alias -g GB='`git branch | peco --prompt "GIT BRANCH>" | sed -e "s/^\*[ ]*//g"`'
@@ -158,3 +160,6 @@ function peco-history() {
 }
 zle -N peco-history
 bindkey '^r' peco-history
+
+eval "$(anyenv init -)"
+eval "$(direnv hook zsh)"
