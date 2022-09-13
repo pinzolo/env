@@ -9,7 +9,7 @@ def deletable?(dest, src)
 end
 
 files = %w(bashrc ideavimrc masqconfig tigrc tmux.conf zprofile zshenv zshrc)
-dirs = %w(vim)
+dirs = %w()
 config_dirs = %w(git peco)
 
 home = File.expand_path('~')
