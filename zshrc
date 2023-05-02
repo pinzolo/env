@@ -123,6 +123,10 @@ if [ -d ${HOME}/.anyenv ] ; then
     done
 fi
 
+# golang
+export GOENV_ROOT=$HOME/.anyenv/envs/goenv
+export GOPATH=$GOENV_ROOT/shims
+export GOBIN=$GOPATH/bin
 
 # peco
 alias -g GB='`git branch | peco --prompt "GIT BRANCH>" | sed -e "s/^\*[ ]*//g"`'

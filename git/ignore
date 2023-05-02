@@ -7,6 +7,6 @@
 **/vendor/bundle
 .bundle
 Thumbs.db
-.tablarian.config
 .settings/*
 private_ci.sh
+Taskfile.yaml
